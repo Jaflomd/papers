@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ToM en Psicopatologia Transdiagnostica — Flores Cohaila 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Roboto+Slab:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',-apple-system,sans-serif;background:#F7F5F2;color:#6C7278;font-size:1rem;line-height:1.75;-webkit-font-smoothing:antialiased}
+    .container{max-width:780px;margin:0 auto;padding:2rem 1.5rem 4rem}
+    .nav-sticky{position:sticky;top:0;z-index:100;background:rgba(247,245,242,.85);backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);border-bottom:1px solid rgba(227,224,219,.7);padding:.75rem 1.5rem;display:flex;gap:1.25rem;overflow-x:auto;scrollbar-width:none}
+    .nav-sticky::-webkit-scrollbar{display:none}
+    .nav-sticky a{font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:500;color:#9B9FA4;text-decoration:none;white-space:nowrap;transition:color .2s;padding:.25rem 0}
+    .nav-sticky a:hover{color:#E63946}
+    h1{font-family:'Lora',serif;font-weight:700;font-size:2rem;line-height:1.3;color:#1A1C1E;letter-spacing:-.01em;margin-bottom:.75rem}
+    h2{font-family:'Lora',serif;font-weight:600;font-size:1.4rem;line-height:1.35;color:#1A1C1E;margin-bottom:1rem}
+    h3{font-family:'DM Sans',sans-serif;font-weight:700;font-size:1.1rem;color:#1A1C1E;margin-bottom:.5rem}
+    p{margin-bottom:1rem}
+    strong{color:#1A1C1E;font-weight:700}
+    .section{margin-bottom:3rem;scroll-margin-top:4rem}
+    .section-divider{border:none;border-top:1px solid #E3E0DB;margin:3rem 0}
+    .fade-in{opacity:0;transform:translateY(18px);transition:opacity .6s ease-out,transform .6s ease-out}
+    .fade-in.visible{opacity:1;transform:translateY(0)}
+    .badge{display:inline-block;font-family:'DM Sans',sans-serif;font-size:.7rem;font-weight:500;text-transform:uppercase;letter-spacing:.08em;padding:.25rem .6rem;border-radius:4px}
+    .badge-teal{background:rgba(46,196,182,.12);color:#2EC4B6}
+    .badge-red{background:rgba(230,57,70,.1);color:#E63946}
+    .badge-gray{background:#F0EDEA;color:#6C7278}
+    .quick-check{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.75rem;margin:1.25rem 0}
+    .qc-item{background:#FFF;border:1px solid #E3E0DB;border-radius:8px;padding:1rem;text-align:center;transition:transform .2s,box-shadow .2s}
+    .qc-item:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.06)}
+    .qc-item .qc-label{font-size:.7rem;font-weight:500;text-transform:uppercase;letter-spacing:.08em;color:#9B9FA4;margin-bottom:.35rem}
+    .qc-item .qc-value{font-family:'Lora',serif;font-weight:600;font-size:1rem;color:#1A1C1E}
+    .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:1.5rem 0}
+    .stat-card{background:#FFF;border:1px solid #E3E0DB;border-radius:8px;padding:1.25rem;text-align:center;transition:transform .2s,box-shadow .2s}
+    .stat-card:hover{transform:translateY(-2px);box-shadow:0 4px 14px rgba(0,0,0,.07)}
+    .stat-card .number{font-family:'Roboto Slab',serif;font-weight:700;font-size:2rem;color:#2EC4B6;line-height:1.2}
+    .stat-card .stat-label{font-size:.8rem;font-weight:500;color:#9B9FA4;text-transform:uppercase;letter-spacing:.06em;margin-top:.35rem}
+    .stat-card .stat-context{font-size:.85rem;color:#6C7278;margin-top:.5rem;line-height:1.5}
+    blockquote{border-left:3px solid #E63946;margin:1.5rem 0;padding:1rem 1.25rem;background:rgba(230,57,70,.04);border-radius:0 6px 6px 0}
+    blockquote p{font-family:'Lora',serif;font-style:italic;font-size:1.05rem;line-height:1.6;color:#1A1C1E;margin:0}
+    blockquote cite{display:block;font-family:'DM Sans',sans-serif;font-style:normal;font-size:.8rem;color:#9B9FA4;margin-top:.5rem}
+    details{margin:1rem 0;border:1px solid #E3E0DB;border-radius:8px;overflow:hidden}
+    details summary{padding:1rem 1.25rem;font-weight:500;font-size:.95rem;color:#1A1C1E;cursor:pointer;background:#F0EDEA;transition:background .2s;list-style:none}
+    details summary::-webkit-details-marker{display:none}
+    details summary::before{content:'\25B8 ';color:#9B9FA4}
+    details[open] summary::before{content:'\25BE '}
+    details summary:hover{background:#E8E5E0}
+    details .details-content{padding:1.25rem;background:#FFF}
+    details .details-content p:last-child{margin-bottom:0}
+    .principle-card{background:#FFF;border:1px solid #E3E0DB;border-left:4px solid #2EC4B6;border-radius:0 8px 8px 0;padding:1.25rem 1.5rem;margin-bottom:1.25rem;transition:transform .2s,box-shadow .2s}
+    .principle-card:hover{transform:translateY(-1px);box-shadow:0 3px 10px rgba(0,0,0,.05)}
+    .principle-card h3{margin-bottom:.5rem}
+    .principle-card .principle-num{font-family:'Roboto Slab',serif;font-weight:700;font-size:.85rem;color:#2EC4B6;margin-bottom:.35rem;text-transform:uppercase;letter-spacing:.06em}
+    .principle-card .transferencia{font-size:.85rem;color:#9B9FA4;font-style:italic;margin-top:.75rem;padding-top:.75rem;border-top:1px solid #E3E0DB}
+    .application-card{background:#FFF;border:1px solid #E3E0DB;border-radius:8px;padding:1.25rem 1.5rem;margin-bottom:1rem;display:flex;gap:1rem;align-items:flex-start;transition:transform .2s,box-shadow .2s}
+    .application-card:hover{transform:translateY(-1px);box-shadow:0 3px 10px rgba(0,0,0,.05)}
+    .application-card .app-number{font-family:'Roboto Slab',serif;font-weight:700;font-size:1.4rem;color:#2EC4B6;min-width:2rem;line-height:1.4}
+    .application-card .app-content{flex:1}
+    .application-card .caveat{font-size:.85rem;color:#9B9FA4;margin-top:.5rem;padding-left:.75rem;border-left:2px solid #E3E0DB}
+    .limitation-item{display:flex;align-items:flex-start;gap:.75rem;margin-bottom:.75rem}
+    .limitation-item .badge{flex-shrink:0;margin-top:.15rem}
+    .glossary dl{margin:0}
+    .glossary dt{font-family:'DM Sans',sans-serif;font-weight:700;color:#1A1C1E;font-size:.95rem;margin-top:1rem}
+    .glossary dt:first-child{margin-top:0}
+    .glossary dd{font-size:.9rem;color:#6C7278;margin-left:0;margin-top:.25rem;line-height:1.6}
+    .reading-item{padding:1rem 0;border-bottom:1px solid #E3E0DB}
+    .reading-item:last-child{border-bottom:none}
+    .reading-item .reading-cite{font-family:'DM Sans',sans-serif;font-weight:500;color:#1A1C1E;font-size:.95rem}
+    .reading-item .reading-why{font-size:.85rem;color:#9B9FA4;margin-top:.25rem}
+    .clean-table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.9rem}
+    .clean-table thead th{text-align:left;font-weight:500;color:#9B9FA4;text-transform:uppercase;letter-spacing:.06em;font-size:.75rem;padding:.75rem 1rem;border-bottom:2px solid #E3E0DB}
+    .clean-table tbody td{padding:.75rem 1rem;color:#1A1C1E;border-bottom:1px solid #E3E0DB;vertical-align:top}
+    .clean-table tbody tr:last-child td{border-bottom:none}
+    .route-card{background:#FFF;border:1px solid #E3E0DB;border-radius:8px;padding:1rem 1.25rem;margin-bottom:.75rem;display:flex;gap:.75rem;align-items:flex-start;transition:transform .15s}
+    .route-card:hover{transform:translateX(3px)}
+    .route-card .route-icon{font-size:1.1rem;min-width:1.5rem;text-align:center;line-height:1.6}
+    .route-card p{margin-bottom:0;font-size:.95rem}
+    @media(max-width:600px){
+      .container{padding:1rem 1rem 3rem}
+      .nav-sticky{font-size:.75rem;gap:1rem;padding:.6rem 1rem}
+      h1{font-size:1.6rem}h2{font-size:1.2rem}
+      .quick-check{grid-template-columns:repeat(2,1fr)}
+      .stats-grid{grid-template-columns:1fr}
+      .stat-card .number{font-size:1.6rem}
+      .application-card{flex-direction:column;gap:.5rem}
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav-sticky">
+  <a href="#quick-check">Quick Check</a>
+  <a href="#metodos">Marco</a>
+  <a href="#datos">Datos clave</a>
+  <a href="#principios">Principios</a>
+  <a href="#aplicaciones">Aplicaciones</a>
+  <a href="#limitaciones">Limitaciones</a>
+  <a href="#route">Route</a>
+  <a href="#lecturas">Lecturas</a>
+</nav>
+
+<div class="container">
+
+  <header class="fade-in" style="margin-bottom:2rem;margin-top:1rem">
+    <h1>Teoria de la Mente en Psicopatologia Transdiagnostica</h1>
+    <p style="color:#9B9FA4;font-size:.9rem;margin-bottom:.5rem">Flores Cohaila J &middot; State-of-the-art review (2020&ndash;2026) &middot; Frameworks RDoC / HiTOP</p>
+    <div style="margin-top:.75rem">
+      <span class="badge badge-teal">Research Briefing</span>
+      <span class="badge badge-gray">RDoC</span>
+      <span class="badge badge-gray">HiTOP</span>
+      <span class="badge badge-gray">~40 refs</span>
+    </div>
+  </header>
+
+  <!-- 1. QUICK CHECK -->
+  <section class="section fade-in" id="quick-check">
+    <h2>Quick Check</h2>
+    <div class="quick-check">
+      <div class="qc-item"><div class="qc-label">Tipo</div><div class="qc-value">Narrative Review</div></div>
+      <div class="qc-item"><div class="qc-label">Periodo</div><div class="qc-value">2020&ndash;2026</div></div>
+      <div class="qc-item"><div class="qc-label">Constructo</div><div class="qc-value">Theory of Mind</div></div>
+      <div class="qc-item"><div class="qc-label">Poblacion</div><div class="qc-value">SCZ, ASD, TLP, DEP, TCA</div></div>
+      <div class="qc-item"><div class="qc-label">Frameworks</div><div class="qc-value">RDoC + HiTOP</div></div>
+      <div class="qc-item"><div class="qc-label">Gap</div><div class="qc-value">Habla hispana</div></div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- 2. COMO LEER -->
+  <section class="section" id="como-leer">
+    <details>
+      <summary>Como leer este review</summary>
+      <div class="details-content">
+        <p>El campo de ToM en psicopatologia esta atascado en una <strong>crisis de medicion, no de teoria</strong>. Los deficits son robustamente transdiagnosticos, pero el instrumento mas usado (RMET) tiene propiedades psicometricas que no soportan el peso causal que se le ha puesto. Este review mapea: (1) que medimos realmente, (2) donde encaja en RDoC y HiTOP, (3) la evidencia transdiagnostica, (4) por que la psicometria es fragil, (5) los frentes translacionales activos, y (6) un gap accionable para investigacion en habla hispana.</p>
+        <p><strong>Para quien:</strong> investigadores en cognicion social, clinicos que evaluan ToM, residentes de psiquiatria, y cualquiera que planee una linea de investigacion en mentalizacion transdiagnostica.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- 3. GLOSARIO -->
+  <section class="section" id="glosario">
+    <details>
+      <summary>Glosario: 8 terminos clave</summary>
+      <div class="details-content glossary">
+        <dl>
+          <dt>ToM (Theory of Mind)</dt>
+          <dd>Capacidad de atribuir estados mentales a otros. No es unitario: 5 ejes operativos (implicito/explicito, cognitivo/afectivo, self/other, hipo/hiper, componencial/integrado). Correlaciones inter-tareas r=0.15-0.30.</dd>
+          <dt>Hipomentalización</dt>
+          <dd>Deficit en atribuir estados mentales. Patron dominante en ASD: errores por "no inferencia". Mas marcado en componente afectivo que cognitivo.</dd>
+          <dt>Hipermentalización</dt>
+          <dd>Atribucion excesiva de estados mentales. Patron en SCZ (ligado a paranoia) y TLP (sesgo negativo). Errores por "sobre-inferencia".</dd>
+          <dt>MASC (Movie for the Assessment of Social Cognition)</dt>
+          <dd>Tarea naturalistica en video de 15 min. Captura hipo/hipermentalizacion con preguntas tipificadas. Mejor reliability y validez ecologica que tareas estaticas.</dd>
+          <dt>RMET (Reading the Mind in the Eyes Test)</dt>
+          <dd>Test clasico de ToM afectivo. Propiedades psicometricas cuestionadas: mediana r inter-item = 0.12, correlaciones negativas en 8/9 datasets grandes.</dd>
+          <dt>Active inference</dt>
+          <dd>Framework bayesiano: mentalizing como inferencia jerarquica sobre causas de conducta del otro. Parametros mecanisticos: precision-weighting, priors sociales, learning rates.</dd>
+          <dt>RDoC Social Processes</dt>
+          <dd>Dominio RDoC donde ToM es subconstructo "Understanding Mental States". Medicion multinivel: genes, circuitos (mPFC, TPJ, pSTS, precuneus, ACC), conducta, autoinforme.</dd>
+          <dt>HiTOP superespectros</dt>
+          <dd>Organizacion dimensional: Internalizing, Externalizing, Thought Disorder, Detachment, Antagonism. ToM se mapea a estos espectros pero aun no esta integrado como faceta nuclear.</dd>
+        </dl>
+      </div>
+    </details>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- 4. MARCO / METODOS -->
+  <section class="section fade-in" id="metodos">
+    <h2>Marco conceptual</h2>
+    <p>State-of-the-art review narrativo que sintetiza la evidencia 2020-2026 sobre ToM como constructo transdiagnostico, integrando los frameworks <strong>RDoC</strong> (Social Processes &rarr; Understanding Mental States) y <strong>HiTOP</strong> (mapeo de patrones ToM a superespectros). Enfasis en la crisis psicometrica del campo y los frentes translacionales activos.</p>
+    <details>
+      <summary>Ver marco completo</summary>
+      <div class="details-content">
+        <h3>ToM: 5 ejes operativos</h3>
+        <table class="clean-table"><thead><tr><th>Eje</th><th>Polos</th><th>Implicacion</th></tr></thead><tbody>
+          <tr><td>Procesamiento</td><td>Implicito &harr; Explicito</td><td>Diferentes redes neurales; tareas no convergen</td></tr>
+          <tr><td>Contenido</td><td>Cognitivo &harr; Afectivo</td><td>Disociable lesionalmente; correlaciones bajas entre tareas</td></tr>
+          <tr><td>Perspectiva</td><td>Self &harr; Other</td><td>Mentalizing del self mide algo distinto (ej. RFQ)</td></tr>
+          <tr><td>Valencia</td><td>Hipo &harr; Hiper</td><td>Mismo score bajo puede reflejar errores opuestos</td></tr>
+          <tr><td>Nivel</td><td>Componencial &harr; Integrado</td><td>Validez ecologica creciente, costo creciente</td></tr>
+        </tbody></table>
+
+        <h3>ToM en RDoC</h3>
+        <p>RDoC Matrix: dominio <strong>Social Processes</strong>, sub-construct <strong>Understanding Mental States</strong>. Red neural compartida SCZ-ASD: mPFC, TPJ, pSTS, ACC, precuneus, amigdala — con hipoactivacion de mPFC y pSTS en ambos espectros pero disociacion en regiones prefrontales ventrolaterales.</p>
+
+        <h3>ToM en HiTOP</h3>
+        <table class="clean-table"><thead><tr><th>Espectro HiTOP</th><th>Patron ToM</th></tr></thead><tbody>
+          <tr><td>Thought Disorder</td><td>Hipermentalizacion + deficit cognitivo ToM</td></tr>
+          <tr><td>Detachment</td><td>Hipomentalización; afectivo > cognitivo en ASD</td></tr>
+          <tr><td>Internalizing</td><td>Heterogeneo; sesgo afectivo negativo; hipermentalizacion ansiosa</td></tr>
+          <tr><td>Antagonism/Disinhibition</td><td>Hipermentalizacion en TLP; hipomentalización afectiva en psicopatia</td></tr>
+          <tr><td>Trans-spectrum</td><td>Mentalizing como mediador transdiagnostico</td></tr>
+        </tbody></table>
+      </div>
+    </details>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- 5. DATOS CLAVE -->
+  <section class="section fade-in" id="datos">
+    <h2>Datos clave</h2>
+    <div class="stats-grid">
+      <div class="stat-card"><div class="number">r = 0.12</div><div class="stat-label">RMET inter-item</div><div class="stat-context">Mediana de correlaciones inter-item en 9 muestras grandes (N=558-9267). El instrumento mas usado esta roto.</div></div>
+      <div class="stat-card"><div class="number">0.15&ndash;0.30</div><div class="stat-label">Inter-tareas ToM</div><div class="stat-context">Correlaciones tipicas entre tareas de ToM. Insuficientes para un factor general. ToM no es unitario.</div></div>
+      <div class="stat-card"><div class="number">N &ge; 388</div><div class="stat-label">Power minimo</div><div class="stat-context">Para detectar r&asymp;0.15 con 80% poder. La mayoria de estudios clinicos (n&lt;100) estan subpowered.</div></div>
+      <div class="stat-card"><div class="number">8 / 9</div><div class="stat-label">Datasets con r negativas</div><div class="stat-context">Proporcion de muestras donde RMET muestra correlaciones inter-item negativas.</div></div>
+      <div class="stat-card"><div class="number">5 ejes</div><div class="stat-label">Dimensiones ToM</div><div class="stat-context">Procesamiento, contenido, perspectiva, valencia operacional, nivel. No reducibles a un score unico.</div></div>
+    </div>
+
+    <blockquote>
+      <p>La pregunta clinica util ya no es "hay deficit ToM en X?" (respuesta: casi siempre si), sino "que patron, en que eje, con que direccion, mediado por que proceso?"</p>
+      <cite>&mdash; Seccion 4, Sintesis</cite>
+    </blockquote>
+
+    <blockquote>
+      <p>La investigacion basada en RMET es "unsubstantiated and uninterpretable" en validez estructural, sustantiva y externa.</p>
+      <cite>&mdash; Quesque &amp; Rossetti 2024, Clinical Psychology Review</cite>
+    </blockquote>
+
+    <details>
+      <summary>Ver evidencia transdiagnostica por trastorno</summary>
+      <div class="details-content">
+        <h3>Esquizofrenia y espectro psicotico</h3>
+        <p>Deficits robustos en ToM cognitivo y afectivo. <strong>Hipermentalizacion</strong> ligada a sintomas positivos/paranoia. Cognicion social predice funcionamiento real-world mejor que neurocognicion no-social (Catalan et al. 2020).</p>
+        <h3>ASD adulto</h3>
+        <p><strong>Hipomentalización</strong> afectiva > cognitiva. Persistencia en adultos de alto funcionamiento. Distincion en patrones de error: ASD comete errores por "no inferencia"; SCZ por "sobre-inferencia" (Morosini et al. 2023).</p>
+        <h3>TLP</h3>
+        <p><strong>Hipermentalizacion</strong> como marca distintiva: atribucion excesiva de intenciones con sesgo negativo (Sharp et al.; Wendt et al. 2025). EMA reciente captura alteracion de auto-reflexion en tiempo real.</p>
+        <h3>Depresion y TEPT</h3>
+        <p>Deficits ToM afectivos asociados a <strong>trauma temprano</strong> como variable transdiagnostica. Active inference modela depresion como "hyperprior" de pesimismo social con precision aumentada para senales negativas (Smith et al. 2024).</p>
+        <h3>TCA y ansiedad social</h3>
+        <p>Deficits consistentes en RMET y afectivo en TCA, especialmente anorexia (Caglar-Nazali 2020; Cardi et al. 2022). Ansiedad social: medium effect Hedges' g=0.51 en CBT digital.</p>
+        <h3>Ninez y desarrollo</h3>
+        <p>En muestra escolar (&gt;5000), dificultades de mentalizacion <strong>explican</strong> asociaciones entre sintomas de salud mental, neurodesarrollo y ajuste social — efecto transdiagnostico (Luyten et al. 2025).</p>
+      </div>
+    </details>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- 6. PRINCIPIOS DESTILADOS -->
+  <section class="section" id="principios">
+    <h2>Principios destilados</h2>
+
+    <div class="principle-card fade-in"><div class="principle-num">Principio 01</div><h3>La crisis es de medicion, no de teoria</h3><p>Los deficits de ToM son robustamente transdiagnosticos — eso ya no se debate. Pero el instrumento mas usado (RMET, ~30 anos de literatura) tiene mediana r inter-item = 0.12 y correlaciones negativas en 8/9 datasets. La evidencia esta construida sobre una herramienta que no mide lo que dice medir.</p><p><strong>Evidencia:</strong> Higgins et al. 2025, 9 muestras grandes (N=558-9267). Quesque &amp; Rossetti 2024: "unsubstantiated and uninterpretable".</p><p class="transferencia">Transferibilidad: cualquier campo donde un instrumento clasico se usa por inercia sin re-evaluar sus propiedades psicometricas con estandares contemporaneos.</p></div>
+
+    <div class="principle-card fade-in"><div class="principle-num">Principio 02</div><h3>La direccion del error importa mas que el score</h3><p>ASD: hipomentalización (no infiere). SCZ/TLP: hipermentalización (sobre-infiere). Depresion: mixto con sesgo afectivo. El mismo "deficit de ToM" esconde procesos cognitivos opuestos. Reportar solo accuracy es clinicamente inutil — necesitamos saber <strong>como</strong> falla, no solo <strong>cuanto</strong>.</p><p><strong>Evidencia:</strong> Morosini et al. 2023; Montag et al. 2021; Wendt et al. 2025 PCA-MASC.</p><p class="transferencia">Transferibilidad: cualquier evaluacion neuropsicologica donde el patron de errores es mas informativo que el score global.</p></div>
+
+    <div class="principle-card fade-in"><div class="principle-num">Principio 03</div><h3>ToM no es un constructo unitario</h3><p>Correlaciones inter-tareas r=0.15-0.30: insuficientes para un factor general. Son 5 ejes operativos que se miden con instrumentos que no convergen. Tratar "ToM total" como variable latente unica viola la evidencia psicometrica acumulada desde Navarro 2022 y Warnell &amp; Redcay 2019.</p><p><strong>Evidencia:</strong> Navarro 2022, Cognition; Pinkham et al. 2024, >25 tareas distintas con poca convergencia.</p><p class="transferencia">Transferibilidad: cualquier constructo psicologico complejo donde la convergencia entre medidas se asume sin verificar (ej: funcion ejecutiva, empatia).</p></div>
+
+    <div class="principle-card fade-in"><div class="principle-num">Principio 04</div><h3>Lo naturalistico supera a lo estatico</h3><p>Tareas en video (MASC, TASIT-III, SSFT, V-SIR) tienen mejor reliability y discriminacion cross-disorder que tareas estaticas (RMET) o geometricas (Frith-Happe Animations). La validez ecologica no es un lujo academico — es condicion de validez de constructo.</p><p><strong>Evidencia:</strong> Pinkham et al. 2024 — estudio de reliability de 15 tareas ToM en SCZ/ASD/controles.</p><p class="transferencia">Transferibilidad: toda evaluacion neuropsicologica se beneficia de tareas con mayor fidelidad a demandas cognitivas reales.</p></div>
+
+    <div class="principle-card fade-in"><div class="principle-num">Principio 05</div><h3>RDoC provee el andamiaje, HiTOP aun no</h3><p>RDoC ya ubica ToM como subconstructo en Social Processes con medicion multinivel (genes &rarr; circuitos &rarr; conducta). HiTOP capta varianza transdiagnostica (Thought Disorder, Detachment, Internalizing) pero <strong>no ha integrado cognicion social como faceta nuclear</strong>. La oportunidad: un "social cognition layer" dimensional para HiTOP.</p><p><strong>Evidencia:</strong> Conway et al. 2025 (Psychol Med Part II): integracion HiTOP-RDoC sigue centrada en biomarcadores, ToM subespecificada.</p><p class="transferencia">Transferibilidad: el gap entre marcos teoricos y operacionalizacion clinica es universal en neurociencia translacional.</p></div>
+
+    <div class="principle-card fade-in"><div class="principle-num">Principio 06</div><h3>La mayoria de la evidencia esta subpowered</h3><p>N&asymp;388 para detectar correlaciones ToM-clinicas tipicas (r&asymp;0.15) con 80% poder. La mayoria de estudios clinicos n&lt;100. Los effect sizes reportados son probablemente inflados por la combinacion de baja confiabilidad instrumental + baja potencia estadistica + publication bias.</p><p><strong>Evidencia:</strong> Navarro 2022: power analysis explicito. Morosini 2023: mismatch de IQ y edad entre muestras ASD vs SCZ.</p><p class="transferencia">Transferibilidad: todo campo con "efectos establecidos" basados en estudios pequenos debe re-evaluar con power analysis honesto.</p></div>
+
+    <div class="principle-card fade-in"><div class="principle-num">Principio 07</div><h3>Mentalizing es proceso dinamico, no rasgo estatico</h3><p>EMA reciente captura dinamicas de auto-reflexion y atribucion social en tiempo real en TLP. La variabilidad intra-individual es clinicamente relevante — un score unico en consulta pierde la dinamica. Mentalizing fluctua con contexto, emocion y demanda social.</p><p><strong>Evidencia:</strong> Borderline EMA 2026 (BPD&amp;ED); Wrzus et al. 2025 (JPSP) — mobile sensing de motivacion afiliativa.</p><p class="transferencia">Transferibilidad: cualquier constructo clinico tratado como rasgo estable cuando la evidencia EMA muestra dinamismo (ej: regulacion emocional, impulsividad).</p></div>
+
+    <div class="principle-card fade-in"><div class="principle-num">Principio 08</div><h3>Computational psychiatry reframea el constructo</h3><p>Active inference modela mentalizing como inferencia bayesiana jerarquica. Provee <strong>parametros mecanisticos</strong> (precision-weighting, priors sociales, learning rates) que son clinicamente interpretables y puente natural a RDoC circuitos. Depresion = hyperprior pesimista social; psicosis = priors aberrantes; TLP = volatility expectations elevadas.</p><p><strong>Evidencia:</strong> Smith et al. 2024 review; Wu et al. 2025 (Comp Brain &amp; Behav).</p><p class="transferencia">Transferibilidad: active inference como framework unificador para multiples dominios cognitivos — no solo ToM sino decision-making, aprendizaje, percepcion.</p></div>
+
+    <div class="principle-card fade-in"><div class="principle-num">Principio 09</div><h3>LLMs son herramienta y problema simultaneamente</h3><p>Como sujetos: alcanzan performance humana en false-belief y faux pas pero fallan en ToM situada/recursiva. Como evaluadores: pueden emular scoring clinico de MASC/TASIT con alta replicabilidad y bajo costo. Riesgos reales: contaminacion de benchmark, "ToM fenomenologica" vs computacional, sycophancy en evaluacion clinica.</p><p><strong>Evidencia:</strong> Strachan et al. 2024; Kosinski 2024; medRxiv 2025; WiseMind framework (npj Digital Medicine 2025).</p><p class="transferencia">Transferibilidad: toda evaluacion neuropsicologica costosa donde la automatizacion con IA promete pero requiere validacion rigurosa.</p></div>
+
+    <div class="principle-card fade-in"><div class="principle-num">Principio 10</div><h3>El gap latinoamericano es oportunidad, no desventaja</h3><p>Diversidad cultural escasa en la literatura (dominancia WEIRD). Invarianza cross-cultural no establecida para ninguna tarea ToM mayor. Version espanola refinada de RMET (Hurtado-Pomares 2025) es avance, pero no resuelve el problema. Validar un core battery transdiagnostico con IRT/SEM en habla hispana es terreno virgen con alta traccion academica.</p><p><strong>Evidencia:</strong> Hurtado-Pomares 2025 (Neuropsychology); IRT argentino (Open Mind 2025). Cero estudios de invarianza MASC cross-cultural.</p><p class="transferencia">Transferibilidad: cualquier campo donde la validacion cross-cultural es gap — la primera validacion rigurosa en un idioma tiene impacto desproporcionado.</p></div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- 7. APLICACIONES -->
+  <section class="section" id="aplicaciones">
+    <h2>Aplicaciones</h2>
+
+    <div class="application-card fade-in"><div class="app-number">01</div><div class="app-content"><p><strong>Evaluacion clinica: bateria multi-tarea, no test unico</strong></p><p>No usar RMET como medida unica de ToM. Bateria minima: tarea naturalistica (<strong>MASC</strong>) + story-based (<strong>Hinting</strong> o Strange Stories) + autoinforme (<strong>CAMSQ</strong> sobre RFQ-8). Tres paradigmas, tres ejes, un perfil.</p><p class="caveat">MASC no esta validado en espanol. La bateria es aspiracional hasta que existan normas locales.</p></div></div>
+
+    <div class="application-card fade-in"><div class="app-number">02</div><div class="app-content"><p><strong>Reportar tipo de error (hipo/hiper), no solo accuracy</strong></p><p>En evaluacion clinica, pedir explicitamente la direccion del error. Esto diferencia ASD (hipomentalización) de SCZ/TLP (hipermentalización) y cambia la formulacion del caso y la estrategia terapeutica.</p><p class="caveat">Solo tareas como MASC desagregan hipo/hiper. RMET no permite esta distincion — otro motivo para no usarlo como medida unica.</p></div></div>
+
+    <div class="application-card fade-in"><div class="app-number">03</div><div class="app-content"><p><strong>Formulacion dimensional HiTOP para pacientes comorbidos</strong></p><p>En pacientes complejos con solapamiento diagnostico, mapear el patron ToM a espectros HiTOP (Detachment vs Thought Disorder vs Internalizing) en vez de forzar diagnosticos categoricos prematuros. La dimension es mas informativa que la etiqueta.</p><p class="caveat">HiTOP no tiene protocolo estandarizado para ToM. Es un framework de formulacion, no un instrumento con normas.</p></div></div>
+
+    <div class="application-card fade-in"><div class="app-number">04</div><div class="app-content"><p><strong>LLMs como scorers automaticos de MASC en espanol</strong></p><p>Desarrollar pipeline reproducible: transcripcion + LLM scorer + validacion contra gold standard humano. Reduce costo de scoring manual, aumenta replicabilidad, y habilita uso en settings con pocos neuropsicologos. Estudio metodologico de alto impacto.</p><p class="caveat">Riesgos: sycophancy, contaminacion, y sobre-confianza en performance de LLM. Requiere validacion head-to-head contra scoring humano experto.</p></div></div>
+
+    <div class="application-card fade-in"><div class="app-number">05</div><div class="app-content"><p><strong>Educacion medica: entrenar patron de error, no etiqueta</strong></p><p>El residente de psiquiatria debe aprender a <strong>distinguir hipo de hipermentalización</strong>, no solo a decir "deficit de ToM". Disenarse casos clinicos con errores tipificados por trastorno. Alineado con razonamiento clinico de primeros principios, no con pattern recognition superficial.</p><p class="caveat">Requiere casos clinicos diseados ad-hoc con respuestas tipo MASC, no solo vinetas genericas de manual.</p></div></div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- 8. LIMITACIONES -->
+  <section class="section fade-in" id="limitaciones">
+    <h2>Limitaciones + Gaps</h2>
+    <div class="limitation-item"><span class="badge badge-red">Instrumentacion</span><span>~30 anos de literatura construida sobre RMET con r inter-item = 0.12. El campo depende de una herramienta con validez estructural cuestionada.</span></div>
+    <div class="limitation-item"><span class="badge badge-red">Power</span><span>Mayoria de estudios clinicos n&lt;100, cronicamente subpowered para efectos transdiagnosticos honestos (necesitan N&ge;388).</span></div>
+    <div class="limitation-item"><span class="badge badge-red">Diversidad</span><span>Dominancia WEIRD. Invarianza cross-cultural no establecida para ninguna tarea mayor. Pocos datos Latinoamerica, Africa, Asia del Sur.</span></div>
+    <div class="limitation-item"><span class="badge badge-red">Terminologia</span><span>ToM, empatia, cognicion social y mentalizacion se usan intercambiablemente sin precision operativa en la literatura aplicada.</span></div>
+    <div class="limitation-item"><span class="badge badge-red">Estado vs rasgo</span><span>No resuelto cuanto de la varianza ToM es estado (dinamico, fluctuante) vs rasgo (estable). Estudios EMA recien estan abordandolo.</span></div>
+
+    <details>
+      <summary>Ver analisis completo</summary>
+      <div class="details-content">
+        <h3>Tensiones no resueltas</h3>
+        <p><strong>Factor general vs subprocesos:</strong> La evidencia psicometrica sugiere subprocesos correlacionados debilmente, pero la pragmatica clinica sigue usando scores compuestos.</p>
+        <p><strong>Mecanismo compartido vs fenotipo compartido:</strong> La hipermentalizacion en SCZ y TLP — comparten mecanismo (priors aberrantes) o solo fenotipo conductual? Datos computacionales aun no concluyentes.</p>
+        <p><strong>Issues metodologicos SCZ vs ASD:</strong> Mismatch de IQ (ASD &gt; SCZ), edad (ASD 25.2 vs SCZ 30.5), heterogeneidad de tareas. Comparabilidad entre estudios limitada (Morosini et al. 2023).</p>
+      </div>
+    </details>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- 9. ROUTE TO APPLICABILITY -->
+  <section class="section" id="route">
+    <h2>Route to Applicability</h2>
+    <h3 style="color:#2EC4B6;margin-bottom:1rem;font-size:.95rem;text-transform:uppercase;letter-spacing:.06em">Que falta para que esto sea aplicable</h3>
+
+    <div class="route-card fade-in"><div class="route-icon">&rarr;</div><p>Validar <strong>MASC + Hinting + CAMSQ en espanol</strong> con IRT/SEM e invarianza de medicion en muestra peruana (ASD adulto, SCZ, TLP, controles, N&ge;300/grupo)</p></div>
+    <div class="route-card fade-in"><div class="route-icon">&rarr;</div><p>Establecer <strong>normativos latinoamericanos</strong> con grupo no-clinico grande para anclar interpretacion</p></div>
+    <div class="route-card fade-in"><div class="route-icon">&rarr;</div><p>Desarrollar <strong>protocolo clinico estandarizado</strong> de reporte hipo/hiper que sea usable por residentes, no solo investigadores</p></div>
+    <div class="route-card fade-in"><div class="route-icon">&rarr;</div><p>Crear <strong>pipeline LLM para scoring automatico de MASC</strong> en espanol con validacion head-to-head contra gold standard humano</p></div>
+    <div class="route-card fade-in"><div class="route-icon">&rarr;</div><p>Integrar <strong>evaluacion ToM dimensional en formacion de residentes</strong> con casos clinicos disenados por patron de error, no por diagnostico</p></div>
+
+    <h3 style="color:#E63946;margin-top:2rem;margin-bottom:1rem;font-size:.95rem;text-transform:uppercase;letter-spacing:.06em">Investigacion necesaria</h3>
+
+    <div class="route-card fade-in"><div class="route-icon" style="color:#E63946">?</div><p><strong>Multi-task (&ge;3 paradigmas) con N&ge;300</strong> para deteccion honesta de efectos transdiagnosticos. Pre-registrar SEM con invarianza configural/metrica/escalar.</p></div>
+    <div class="route-card fade-in"><div class="route-icon" style="color:#E63946">?</div><p><strong>EMA longitudinal (6-12 meses)</strong> de mentalizing como proceso dinamico en TLP y SCZ — mentalizing como estado, no solo rasgo.</p></div>
+    <div class="route-card fade-in"><div class="route-icon" style="color:#E63946">?</div><p><strong>Head-to-head MASC vs RMET-refined vs Hinting:</strong> cual discrimina mejor hipo/hiper cross-disorder en habla hispana?</p></div>
+    <div class="route-card fade-in"><div class="route-icon" style="color:#E63946">?</div><p><strong>Modelos computacionales bayesianos</strong> (active inference + ToM) aplicados a datos clinicos latinoamericanos.</p></div>
+    <div class="route-card fade-in"><div class="route-icon" style="color:#E63946">?</div><p><strong>Invarianza de medicion cross-cultural</strong> RMET-refined espanol vs ingles vs aleman — el estudio que el campo necesita para decidir si RMET se rescata o se abandona.</p></div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- 10. LECTURAS -->
+  <section class="section" id="lecturas">
+    <details>
+      <summary>Lecturas recomendadas (5 referencias)</summary>
+      <div class="details-content">
+        <div class="reading-item"><div class="reading-cite">Pinkham et al. 2024 — Reliability of ToM tasks in SCZ/ASD/controls (Schizophr Bull)</div><div class="reading-why">El estudio definitivo de que tareas medir. 15 tareas comparadas en confiabilidad y discriminacion. Conclusion: video-naturalisticas y story-based ganan.</div></div>
+        <div class="reading-item"><div class="reading-cite">Higgins et al. 2025 — RMET poor structural properties (Assessment)</div><div class="reading-why">Diagnostico psicometrico en 9 muestras grandes. El paper que rompe el instrumento y obliga a re-evaluar la literatura.</div></div>
+        <div class="reading-item"><div class="reading-cite">Hayward et al. 2023 — Assessment of ToM in Psychopathology (scoping review)</div><div class="reading-why">Mapa completo del campo: que se mide, con que, en quien. Punto de entrada para cualquier linea de investigacion.</div></div>
+        <div class="reading-item"><div class="reading-cite">Velthorst et al. 2020 — Social cognition RDoC bridge SCZ-ASD (Front Psychiatry)</div><div class="reading-why">El puente conceptual SCZ-ASD en RDoC: red neural compartida, disociacion funcional. Base para investigacion dimensional.</div></div>
+        <div class="reading-item"><div class="reading-cite">Smith et al. 2024 — Active inference in psychology/psychiatry (review)</div><div class="reading-why">El futuro mecanistico: mentalizing como inferencia bayesiana. Provee los parametros que la clinica necesita.</div></div>
+      </div>
+    </details>
+  </section>
+
+  <!-- FOOTER -->
+  <div style="text-align:center;padding:2rem 0 1rem;border-top:1px solid #E3E0DB;margin-top:2rem">
+    <p style="font-size:.8rem;color:#9B9FA4;margin-bottom:.25rem">Paper Digest &mdash; <strong style="color:#6C7278">Jaflo Lab</strong></p>
+    <p style="font-size:.75rem;color:#9B9FA4;margin-bottom:0">Flores Cohaila J &middot; ToM Transdiagnostico Review &middot; Mayo 2026</p>
+  </div>
+
+</div>
+
+<script>
+const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.08,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
