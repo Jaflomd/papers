@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modelo MENTE — Formulacion clinica de Teoria de la Mente</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Roboto+Slab:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:'DM Sans',-apple-system,sans-serif;background:#F7F5F2;color:#6C7278;font-size:1rem;line-height:1.75;-webkit-font-smoothing:antialiased}.container{max-width:780px;margin:0 auto;padding:2rem 1.5rem 4rem}.nav-sticky{position:sticky;top:0;z-index:100;background:rgba(247,245,242,.85);backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);border-bottom:1px solid rgba(227,224,219,.7);padding:.75rem 1.5rem;display:flex;gap:1.25rem;overflow-x:auto;scrollbar-width:none}.nav-sticky::-webkit-scrollbar{display:none}.nav-sticky a{font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:500;color:#9B9FA4;text-decoration:none;white-space:nowrap;transition:color .2s;padding:.25rem 0}.nav-sticky a:hover{color:#E63946}h1{font-family:'Lora',serif;font-weight:700;font-size:2rem;line-height:1.3;color:#1A1C1E;letter-spacing:-.01em;margin-bottom:.75rem}h2{font-family:'Lora',serif;font-weight:600;font-size:1.4rem;line-height:1.35;color:#1A1C1E;margin-bottom:1rem}h3{font-family:'DM Sans',sans-serif;font-weight:700;font-size:1.1rem;color:#1A1C1E;margin-bottom:.5rem}p{margin-bottom:1rem}strong{color:#1A1C1E;font-weight:700}.section{margin-bottom:3rem;scroll-margin-top:4rem}.section-divider{border:none;border-top:1px solid #E3E0DB;margin:3rem 0}.fade-in{opacity:0;transform:translateY(18px);transition:opacity .6s ease-out,transform .6s ease-out}.fade-in.visible{opacity:1;transform:translateY(0)}.badge{display:inline-block;font-family:'DM Sans',sans-serif;font-size:.7rem;font-weight:500;text-transform:uppercase;letter-spacing:.08em;padding:.25rem .6rem;border-radius:4px}.badge-teal{background:rgba(46,196,182,.12);color:#2EC4B6}.badge-red{background:rgba(230,57,70,.1);color:#E63946}.badge-gray{background:#F0EDEA;color:#6C7278}.quick-check{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.75rem;margin:1.25rem 0}.qc-item{background:#FFF;border:1px solid #E3E0DB;border-radius:8px;padding:1rem;text-align:center;transition:transform .2s,box-shadow .2s}.qc-item:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.06)}.qc-item .qc-label{font-size:.7rem;font-weight:500;text-transform:uppercase;letter-spacing:.08em;color:#9B9FA4;margin-bottom:.35rem}.qc-item .qc-value{font-family:'Lora',serif;font-weight:600;font-size:1rem;color:#1A1C1E}.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:1.5rem 0}.stat-card{background:#FFF;border:1px solid #E3E0DB;border-radius:8px;padding:1.25rem;text-align:center;transition:transform .2s,box-shadow .2s}.stat-card:hover{transform:translateY(-2px);box-shadow:0 4px 14px rgba(0,0,0,.07)}.stat-card .number{font-family:'Roboto Slab',serif;font-weight:700;font-size:2rem;color:#2EC4B6;line-height:1.2}.stat-card .stat-label{font-size:.8rem;font-weight:500;color:#9B9FA4;text-transform:uppercase;letter-spacing:.06em;margin-top:.35rem}.stat-card .stat-context{font-size:.85rem;color:#6C7278;margin-top:.5rem;line-height:1.5}blockquote{border-left:3px solid #E63946;margin:1.5rem 0;padding:1rem 1.25rem;background:rgba(230,57,70,.04);border-radius:0 6px 6px 0}blockquote p{font-family:'Lora',serif;font-style:italic;font-size:1.05rem;line-height:1.6;color:#1A1C1E;margin:0}blockquote cite{display:block;font-family:'DM Sans',sans-serif;font-style:normal;font-size:.8rem;color:#9B9FA4;margin-top:.5rem}details{margin:1rem 0;border:1px solid #E3E0DB;border-radius:8px;overflow:hidden}details summary{padding:1rem 1.25rem;font-weight:500;font-size:.95rem;color:#1A1C1E;cursor:pointer;background:#F0EDEA;transition:background .2s;list-style:none}details summary::-webkit-details-marker{display:none}details summary::before{content:'\25B8 ';color:#9B9FA4}details[open] summary::before{content:'\25BE '}details summary:hover{background:#E8E5E0}details .details-content{padding:1.25rem;background:#FFF}details .details-content p:last-child{margin-bottom:0}.principle-card{background:#FFF;border:1px solid #E3E0DB;border-left:4px solid #2EC4B6;border-radius:0 8px 8px 0;padding:1.25rem 1.5rem;margin-bottom:1.25rem;transition:transform .2s,box-shadow .2s}.principle-card:hover{transform:translateY(-1px);box-shadow:0 3px 10px rgba(0,0,0,.05)}.principle-card h3{margin-bottom:.5rem}.principle-card .principle-num{font-family:'Roboto Slab',serif;font-weight:700;font-size:.85rem;color:#2EC4B6;margin-bottom:.35rem;text-transform:uppercase;letter-spacing:.06em}.principle-card .transferencia{font-size:.85rem;color:#9B9FA4;font-style:italic;margin-top:.75rem;padding-top:.75rem;border-top:1px solid #E3E0DB}.application-card{background:#FFF;border:1px solid #E3E0DB;border-radius:8px;padding:1.25rem 1.5rem;margin-bottom:1rem;display:flex;gap:1rem;align-items:flex-start;transition:transform .2s,box-shadow .2s}.application-card:hover{transform:translateY(-1px);box-shadow:0 3px 10px rgba(0,0,0,.05)}.application-card .app-number{font-family:'Roboto Slab',serif;font-weight:700;font-size:1.4rem;color:#2EC4B6;min-width:2rem;line-height:1.4}.application-card .app-content{flex:1}.application-card .caveat{font-size:.85rem;color:#9B9FA4;margin-top:.5rem;padding-left:.75rem;border-left:2px solid #E3E0DB}.limitation-item{display:flex;align-items:flex-start;gap:.75rem;margin-bottom:.75rem}.limitation-item .badge{flex-shrink:0;margin-top:.15rem}.glossary dl{margin:0}.glossary dt{font-family:'DM Sans',sans-serif;font-weight:700;color:#1A1C1E;font-size:.95rem;margin-top:1rem}.glossary dt:first-child{margin-top:0}.glossary dd{font-size:.9rem;color:#6C7278;margin-left:0;margin-top:.25rem;line-height:1.6}.reading-item{padding:1rem 0;border-bottom:1px solid #E3E0DB}.reading-item:last-child{border-bottom:none}.reading-item .reading-cite{font-family:'DM Sans',sans-serif;font-weight:500;color:#1A1C1E;font-size:.95rem}.reading-item .reading-why{font-size:.85rem;color:#9B9FA4;margin-top:.25rem}.clean-table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.9rem}.clean-table thead th{text-align:left;font-weight:500;color:#9B9FA4;text-transform:uppercase;letter-spacing:.06em;font-size:.75rem;padding:.75rem 1rem;border-bottom:2px solid #E3E0DB}.clean-table tbody td{padding:.75rem 1rem;color:#1A1C1E;border-bottom:1px solid #E3E0DB;vertical-align:top}.clean-table tbody tr:last-child td{border-bottom:none}.route-card{background:#FFF;border:1px solid #E3E0DB;border-radius:8px;padding:1rem 1.25rem;margin-bottom:.75rem;display:flex;gap:.75rem;align-items:flex-start;transition:transform .15s}.route-card:hover{transform:translateX(3px)}.route-card .route-icon{font-size:1.1rem;min-width:1.5rem;text-align:center;line-height:1.6}.route-card p{margin-bottom:0;font-size:.95rem}.dim-card{background:#FFF;border:1px solid #E3E0DB;border-radius:8px;padding:1.25rem 1.5rem;margin-bottom:1rem;border-top:3px solid #2EC4B6}.dim-card .dim-letter{font-family:'Roboto Slab',serif;font-weight:700;font-size:2.5rem;color:#2EC4B6;line-height:1;margin-bottom:.25rem}.dim-card .dim-name{font-family:'DM Sans',sans-serif;font-weight:700;font-size:1rem;color:#1A1C1E;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.04em}.case-card{background:#FFF;border:1px solid #E3E0DB;border-radius:8px;padding:1.25rem 1.5rem;margin-bottom:1.25rem}.case-card .case-header{display:flex;align-items:center;gap:.75rem;margin-bottom:.75rem}.case-card .case-name{font-family:'Lora',serif;font-weight:600;font-size:1.1rem;color:#1A1C1E}.case-card .case-dx{font-size:.8rem;color:#9B9FA4}.case-card .mente-code{font-family:'Roboto Slab',serif;font-size:.85rem;color:#2EC4B6;background:rgba(46,196,182,.08);padding:.5rem .75rem;border-radius:6px;margin:.75rem 0;display:block}@media(max-width:600px){.container{padding:1rem 1rem 3rem}.nav-sticky{font-size:.75rem;gap:1rem;padding:.6rem 1rem}h1{font-size:1.6rem}h2{font-size:1.2rem}.quick-check{grid-template-columns:repeat(2,1fr)}.stats-grid{grid-template-columns:1fr}.stat-card .number{font-size:1.6rem}.application-card{flex-direction:column;gap:.5rem}}
+  </style>
+</head>
+<body>
+
+<nav class="nav-sticky">
+  <a href="#quick-check">Quick Check</a>
+  <a href="#dimensiones">Dimensiones</a>
+  <a href="#datos">Ideas clave</a>
+  <a href="#principios">Principios</a>
+  <a href="#casos">Casos</a>
+  <a href="#aplicaciones">Aplicaciones</a>
+  <a href="#limitaciones">Limitaciones</a>
+  <a href="#route">Route</a>
+</nav>
+
+<div class="container">
+
+  <header class="fade-in" style="margin-bottom:2rem;margin-top:1rem">
+    <h1>Modelo MENTE</h1>
+    <p style="font-family:'Lora',serif;font-size:1.15rem;color:#1A1C1E;margin-bottom:.5rem">Marco canonico de formulacion clinica de Teoria de la Mente</p>
+    <p style="color:#9B9FA4;font-size:.9rem;margin-bottom:.5rem">Flores Cohaila J &middot; Working paper v1.0 &middot; Mayo 2026</p>
+    <div style="margin-top:.75rem">
+      <span class="badge badge-teal">Clinical Framework</span>
+      <span class="badge badge-gray">Luyten &amp; Fonagy 2020</span>
+      <span class="badge badge-gray">Happe-Cook-Bird 2017</span>
+      <span class="badge badge-gray">Schaafsma 2015</span>
+    </div>
+  </header>
+
+  <!-- QUICK CHECK -->
+  <section class="section fade-in" id="quick-check">
+    <h2>Quick Check</h2>
+    <div class="quick-check">
+      <div class="qc-item"><div class="qc-label">Tipo</div><div class="qc-value">Framework clinico</div></div>
+      <div class="qc-item"><div class="qc-label">Constructo</div><div class="qc-value">ToM dimensional</div></div>
+      <div class="qc-item"><div class="qc-label">Dimensiones</div><div class="qc-value">5 + 3 modos + 3 niveles</div></div>
+      <div class="qc-item"><div class="qc-label">Casos</div><div class="qc-value">8 prototipos</div></div>
+      <div class="qc-item"><div class="qc-label">Reglas</div><div class="qc-value">7 razonamiento</div></div>
+      <div class="qc-item"><div class="qc-label">Estado</div><div class="qc-value">No publicado</div></div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- COMO LEER -->
+  <section class="section">
+    <details>
+      <summary>Como leer este documento</summary>
+      <div class="details-content">
+        <p>La etiqueta "deficit de ToM" aparece en historias clinicas de ASD, SCZ, TLP, depresion y trauma &mdash; pero no especifica que proceso falla, no sugiere intervencion, y no diferencia perfiles opuestos. <strong>MENTE</strong> existe para resolver esto: es una plantilla canonica de formulacion que reconcilia tres marcos teoricos en una estructura redactable en HC real, anclada en literatura citable, y traducible a bateria psicometrica.</p>
+        <p><strong>MENTE = M</strong>otivacion + <strong>E</strong>xterno + <strong>N</strong>aturaleza + <strong>T</strong>iempo + <strong>E</strong>je self-other. Mas 3 modos pre-mentalizing y 3 niveles de demanda.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- GLOSARIO -->
+  <section class="section">
+    <details>
+      <summary>Glosario: 8 terminos clave</summary>
+      <div class="details-content glossary">
+        <dl>
+          <dt>MENTE</dt><dd>Acronimo: Motivacion, Externo, Naturaleza, Tiempo, Eje self-other. Plantilla de formulacion clinica que integra Luyten &amp; Fonagy 2020, Happe-Cook-Bird 2017, y Schaafsma 2015.</dd>
+          <dt>Psychic equivalence</dt><dd>Modo pre-mentalizing: pensamientos = realidad. Sin distancia mapa-territorio. "Si lo pienso, es asi." Paradigmatico de TLP.</dd>
+          <dt>Modo teleologico</dt><dd>Solo conductas observables cuentan como evidencia de estados mentales. "Si me amas, demuestralo concretamente."</dd>
+          <dt>Modo pretend</dt><dd>Habla sobre estados mentales sin anclaje afectivo real. 4 subvariantes: rumiativo con insight, delirante, frio, intelectualizante.</dd>
+          <dt>Doble disociacion cog/afect</dt><dd>vmPFC &rarr; afectivo&darr;, dmPFC &rarr; cognitivo&darr;. Evidencia neurolesional + TMS causal. La disociacion mas solida del campo (Shamay-Tsoory 2007/2010).</dd>
+          <dt>Empathy paradox</dt><dd>TLP puntua mejor que controles en RMET (externo) pero peor en MASC (interno). Hipersensibilidad a claves observables con falla en inferencia profunda.</dd>
+          <dt>A-mentalizacion secundaria</dt><dd>Sistema ToM intacto pero no activado. Causa: falla motivacional primaria (SCZ negativos, depresion grave con apatia). Target = motivacion, no ToM.</dd>
+          <dt>Nivel de demanda</dt><dd>Componencial (RMET) &rarr; Integrado (MASC, Hinting) &rarr; Ecologico (vida real, EMA). El nivel donde aparece el deficit dicta la bateria y el riesgo de falso negativo.</dd>
+        </dl>
+      </div>
+    </details>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- DIMENSIONES -->
+  <section class="section" id="dimensiones">
+    <h2>Las cinco dimensiones</h2>
+    <p>Cada dimension se codifica: <strong>&uarr;</strong> (hiper/supranormal), <strong>&darr;</strong> (deficit), <strong>&harr;</strong> (intacto), <strong>&plusmn;</strong> (parcial).</p>
+
+    <div class="dim-card fade-in"><div class="dim-letter">M</div><div class="dim-name">Motivacion social</div><p>Grado en que el paciente <strong>inicia espontaneamente</strong> procesos de mentalizacion ante estimulos sociales. No es ToM: es el input que activa el sistema.</p><p><strong>Base:</strong> Happe-Cook-Bird 2017 (proceso #1); Social motivation theory of autism (Chevallier et al. 2012).</p><p><strong>Regla 1:</strong> Descartar M&darr; antes de tipificar deficit ToM. Si motivacion esta primariamente afectada, es a-mentalizacion secundaria &mdash; target = motivacion, no entrenamiento ToM.</p><p style="font-size:.9rem;color:#9B9FA4">M&darr;&darr; = SCZ negativos, depresion grave &bull; M&harr; con ToM&darr; = ASD &bull; M&uarr; ansioso = TLP, ansiedad social &bull; M&uarr; instrumental = psicopatia &bull; M&uarr; aberrante = psicosis paranoide</p></div>
+
+    <div class="dim-card fade-in"><div class="dim-letter">E</div><div class="dim-name">Externo vs. Interno</div><p><strong>Externo:</strong> leer claves observables (cara, postura, tono). <strong>Interno:</strong> inferir estado mental subyacente no observable.</p><p><strong>Base:</strong> Luyten &amp; Fonagy 2020 (polaridad Internal/External); sustratos: red frontoparietal medial (Internal) vs. lateral frontotemporoparietal (External).</p><p><strong>Regla 3:</strong> RMET normal NO descarta deficit interno. Es el error psicometrico mas comun. TLP puntua mejor que controles en RMET (E&uarr;) pero peor en MASC (I&darr;).</p><p style="font-size:.9rem;color:#9B9FA4">E&harr; I&darr; = ASD &bull; E&uarr;&uarr; I&darr; = TLP (empathy paradox) &bull; E&uarr; I&uarr; delirante = psicosis &bull; E&uarr; I&uarr; autofocal = ansiedad social</p></div>
+
+    <div class="dim-card fade-in"><div class="dim-letter">N</div><div class="dim-name">Naturaleza: cognitivo / afectivo</div><p><strong>Cognitivo:</strong> creencias, intenciones, conocimiento. <strong>Afectivo:</strong> emociones, deseos, dolor.</p><p><strong>Base:</strong> Shamay-Tsoory &amp; Aharon-Peretz 2007 (disociacion lesional); TMS 2010 (confirmacion causal). Doble disociacion canonica mas solida del campo.</p><p><strong>Regla 6:</strong> Si patron N no encaja con sospecha categorica, reconsiderar diagnostico. ASD: cog&harr; afect&darr;. Psicopatia: cog&uarr; afect&darr;&darr;.</p><p style="font-size:.9rem;color:#9B9FA4">N cog&harr; afect&darr; = ASD &bull; N cog&uarr; afect&darr;&darr; = psicopatia &bull; N global&darr; = SCZ &bull; N cog&darr; afect&uarr;&uarr; = TLP caliente &bull; N afect&darr; sesgo negativo = depresion</p></div>
+
+    <div class="dim-card fade-in"><div class="dim-letter">T</div><div class="dim-name">Tiempo: automatico / controlado</div><p><strong>Automatico:</strong> rapido, reflejo, sin esfuerzo. <strong>Controlado:</strong> lento, deliberativo, verbal, capaz de revisar.</p><p><strong>Base:</strong> Apperly &amp; Butterfill 2009 (dos sistemas); Luyten &amp; Fonagy 2020 (polaridad Automatic/Controlled).</p><p style="font-size:.9rem;color:#9B9FA4">T auto&darr; contr&plusmn; = ASD (compensa con esfuerzo) &bull; T auto&uarr;&uarr; contr&darr; = TLP caliente &bull; T auto sesgado contr&uarr;&uarr; = ansiedad social (rumiacion post-evento) &bull; T ambos&darr; = SCZ residual</p></div>
+
+    <div class="dim-card fade-in"><div class="dim-letter">E</div><div class="dim-name">Eje Self &harr; Other</div><p><strong>Self:</strong> estados mentales propios (introspeccion, claridad emocional). <strong>Other:</strong> estados mentales ajenos. Requiere inhibicion de auto-perspectiva.</p><p><strong>Base:</strong> Luyten &amp; Fonagy 2020 (Shared Representation = IFG, AI, ACC; Mental State Attribution = vmPFC, dmPFC, TPJ); Schaafsma 2015 (self-other distinction).</p><p><strong>Regla 4:</strong> Self&harr; + Other&darr; (ASD) &ne; Self&darr; + Other&harr; (alexitimia). La intervencion es radicalmente distinta.</p><p style="font-size:.9rem;color:#9B9FA4">Self&harr; Other&darr; = ASD &bull; Self&darr; Other&uarr; confuso = TLP &bull; Self&darr;&darr; Other&harr; = alexitimia primaria &bull; Self&uarr; rumiativo Other proyeccion = depresion</p></div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- IDEAS CLAVE -->
+  <section class="section fade-in" id="datos">
+    <h2>Ideas clave</h2>
+    <div class="stats-grid">
+      <div class="stat-card"><div class="number">5</div><div class="stat-label">Dimensiones MENTE</div><div class="stat-context">M, E, N, T, E &mdash; cada una con sustrato neural distinguible y patron clinico diferencial</div></div>
+      <div class="stat-card"><div class="number">3+4</div><div class="stat-label">Modos pre-mentalizing</div><div class="stat-context">Psychic equiv., teleologico, pretend (4 subvariantes). Cada uno exige intervencion diferente</div></div>
+      <div class="stat-card"><div class="number">3</div><div class="stat-label">Niveles de demanda</div><div class="stat-context">Componencial &rarr; Integrado &rarr; Ecologico. RMET normal no descarta deficit integrado</div></div>
+      <div class="stat-card"><div class="number">7</div><div class="stat-label">Reglas de razonamiento</div><div class="stat-context">Regla 1 (descartar M&darr;) cambia mas decisiones que cualquier bateria psicometrica</div></div>
+      <div class="stat-card"><div class="number">8</div><div class="stat-label">Casos prototipo</div><div class="stat-context">ASD, SCZ, psicopatia, TLP, psicosis, ansiedad social, depresion, alexitimia</div></div>
+    </div>
+
+    <blockquote><p>MENTE no propone dimensiones nuevas. Toma las mejor establecidas de tres marcos canonicos y las ensambla mnemotecnicamente. El valor esta en la integracion y la accionabilidad clinica, no en innovacion teorica.</p><cite>&mdash; Seccion 2, Principio de no-originalidad</cite></blockquote>
+
+    <blockquote><p>La regla mas importante es la Regla 1: descartar M&darr; primaria antes de tipificar deficit ToM. Esa sola regla cambia mas decisiones terapeuticas que cualquier bateria psicometrica.</p><cite>&mdash; Seccion 13, Cierre</cite></blockquote>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- PRINCIPIOS -->
+  <section class="section" id="principios">
+    <h2>Principios destilados</h2>
+
+    <div class="principle-card fade-in"><div class="principle-num">01</div><h3>"Deficit de ToM" es etiqueta vacia sin perfil dimensional</h3><p>No especifica que proceso falla, no sugiere intervencion, no diferencia entre hipomentalización ASD e hipermentalización TLP, no es testeable con una sola tarea, no es publicable sin operacionalizacion. MENTE existe para transformar esa etiqueta en un perfil accionable.</p><p class="transferencia">Transferibilidad: cualquier constructo clinico usado como etiqueta sin operacionalizacion dimensional (ej: "disfuncion ejecutiva", "deficit de empatia").</p></div>
+
+    <div class="principle-card fade-in"><div class="principle-num">02</div><h3>No-originalidad teorica como virtud</h3><p>MENTE integra dimensiones ya establecidas de 3 marcos canonicos. No inventa nada. El valor es la integracion mnemotecnica + accionabilidad clinica. Pretender originalidad donde no la hay es academicamente deshonesto. Posicionar como "clinical formulation tool", no como modelo teorico nuevo.</p><p class="transferencia">Transferibilidad: toda integracion de marcos existentes en herramienta practica tiene valor sin necesitar originalidad teorica.</p></div>
+
+    <div class="principle-card fade-in"><div class="principle-num">03</div><h3>Hipo/hiper es dicotomia insuficiente</h3><p>Colapsa mecanismos distintos. Hipermentalizacion TLP (psychic equivalence + caliente) &ne; psicotica (pretend delirante + descontextualizada) &ne; ansiosa (pretend con insight + post-evento). MENTE codifica direccion POR dimension + modo + nivel. Tres capas, no una dicotomia.</p><p class="transferencia">Transferibilidad: toda dicotomia clinica gruesa (ej: hipo/hiper-activacion, acting in/out) necesita descomposicion dimensional.</p></div>
+
+    <div class="principle-card fade-in"><div class="principle-num">04</div><h3>Descartar M&darr; antes de tipificar deficit ToM</h3><p>Si motivacion social esta primariamente afectada, no hay deficit ToM sino a-mentalizacion secundaria. El sistema no esta roto &mdash; no se activa. La intervencion cambia radicalmente: target = sintomas negativos, apatia, anhedonia social. No entrenamiento ToM.</p><p class="transferencia">Transferibilidad: en cualquier dominio cognitivo, distinguir deficit primario de subactivacion secundaria cambia la intervencion.</p></div>
+
+    <div class="principle-card fade-in"><div class="principle-num">05</div><h3>RMET normal no descarta deficit interno</h3><p>Error psicometrico mas comun en practica general. TLP puntua mejor que controles en RMET (lectura externa) pero peor en MASC (inferencia interna). Si sospechas deficit de comprension de sutilezas relacionales, exigir tarea contextual. RMET solo mide una dimension de MENTE.</p><p class="transferencia">Transferibilidad: no confiar en un solo instrumento para un constructo multidimensional. La bateria escalonada es la regla.</p></div>
+
+    <div class="principle-card fade-in"><div class="principle-num">06</div><h3>La doble disociacion N es el ancla diferencial mas solida</h3><p>ASD: cog&harr; afect&darr;. Psicopatia: cog&uarr; afect&darr;&darr;. Evidencia neurolesional (vmPFC vs dmPFC) + TMS causal + fMRI convergente. Si el patron N no encaja con la sospecha categorica, reconsiderar el diagnostico. Es la disociacion mas replicada del campo.</p><p class="transferencia">Transferibilidad: buscar doble disociaciones como ancla diferencial es estrategia de oro en neuropsicologia clinica.</p></div>
+
+    <div class="principle-card fade-in"><div class="principle-num">07</div><h3>El modo pre-mentalizing activo dicta la intervencion</h3><p>Psychic equivalence: restaurar funcion "como si" (MBT estandar). Teleologico: distinguir intencion de conducta. Pretend: anclar a experiencia afectiva. Sin especificar modo, la etiqueta "hipermentalizacion" queda colapsada entre TLP, psicosis, ansiedad social y defensa neurótica.</p><p class="transferencia">Transferibilidad: toda intervencion debe estar anclada a mecanismo, no a fenomeno.</p></div>
+
+    <div class="principle-card fade-in"><div class="principle-num">08</div><h3>El nivel de demanda dicta la bateria</h3><p>Sospecha ecologica (vida real) requiere evaluacion ecologica (EMA, entrevista colateral). Administrar solo RMET (componencial) ante sospecha ecologica produce falso negativo sistematico. Reportar nivel = psicometricamente honesto y clinicamente accionable.</p><p class="transferencia">Transferibilidad: toda evaluacion neuropsicologica debe calibrar el instrumento a la demanda clinica sospechada.</p></div>
+
+    <div class="principle-card fade-in"><div class="principle-num">09</div><h3>Self&darr; + Other&harr; es patron inverso y sugiere alexitimia</h3><p>No confundir con ASD (Self&harr; Other&darr;). El primer patron (Self danado, Other preservado) apunta a alexitimia primaria o disociacion. La intervencion es radicalmente distinta: self-awareness emocional (EFT, MBT self-focus), no perspective-taking del otro.</p><p class="transferencia">Transferibilidad: los patrones inversos en constructos bidimensionales son diagnosticamente criticos y se confunden facilmente.</p></div>
+
+    <div class="principle-card fade-in"><div class="principle-num">10</div><h3>Psychic equivalence + integrado caliente = TLP hasta demostrar lo contrario</h3><p>Combinacion altamente especifica para TLP en contexto de apego activado. En psicosis, el modo es pretend delirante y el nivel es descontextualizado (aparece sin demanda social explicita). Esta regla es la mas diagnostica de las 7 del modelo.</p><p class="transferencia">Transferibilidad: combinar modo + nivel + contexto de activacion produce reglas diagnosticas con alta especificidad.</p></div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- CASOS -->
+  <section class="section" id="casos">
+    <h2>Casos prototipos</h2>
+
+    <div class="case-card fade-in"><div class="case-header"><div class="case-name">Carlos, 28 &mdash; ASD adulto sin DI</div><span class="badge badge-teal">ASD</span></div><p>Ingeniero. Pareja le reprocha no haber llamado a la mama. Ofrece llamar ahora. Pareja se va mas molesta.</p><code class="mente-code">M&harr; / E&harr; I&darr; / N cog&harr; afect&darr; / T auto&darr; contr&plusmn; / Self&harr; Other&darr; &middot; Modo: ninguno &middot; Nivel: ecologico</code><p style="font-size:.9rem">Motivacion preservada. Falla en inferencia interna afectiva. Procesamiento automatico alterado, compensable. RMET puede ser falsamente normal.</p></div>
+
+    <div class="case-card fade-in"><div class="case-header"><div class="case-name">Ana, 34 &mdash; SCZ residual</div><span class="badge badge-gray">SCZ</span></div><p>Hermano cuenta entusiasmado un ascenso. Ana: "Ok." Sin afecto ni pregunta.</p><code class="mente-code">M&darr;&darr; / E&darr; I&darr; / N global&darr; / T auto&darr; contr&darr; / Self&darr; Other&darr; &middot; Modo: a-mentalizacion &middot; Nivel: componencial+integrado</code><p style="font-size:.9rem">Deficit primario en motivacion &rarr; a-mentalizacion secundaria. Target: sintomas negativos, no entrenamiento ToM.</p></div>
+
+    <div class="case-card fade-in"><div class="case-header"><div class="case-name">Diego, 41 &mdash; Antisocial / psicopatia</div><span class="badge badge-red">TASP</span></div><p>Empresario. Despide a empleado vulnerable sabiendo su situacion familiar.</p><code class="mente-code">M&harr; instrumental / E&harr; I&harr; / N cog&uarr; afect&darr;&darr; / T auto&harr; contr&uarr; / Self&darr; Other&uarr; predador &middot; Modo: pretend frio &middot; Nivel: todos</code><p style="font-size:.9rem">Doble disociacion canonica: ToM cognitivo supranormal, empatia afectiva severamente deficitaria. Rinde bien en tareas frias.</p></div>
+
+    <div class="case-card fade-in"><div class="case-header"><div class="case-name">Maria, 26 &mdash; TLP</div><span class="badge badge-red">TLP</span></div><p>Terapeuta llega 3 min tarde. "Se que ya no quieres atenderme, lo decidiste esta semana."</p><code class="mente-code">M&uarr; ansioso / E&uarr;&uarr; I&darr; / N cog&darr; afect&uarr;&uarr; / T auto&uarr;&uarr; contr&darr; / Self&darr; Other&uarr; hostil &middot; Modo: psychic equiv. &middot; Nivel: integrado caliente</code><p style="font-size:.9rem">Empathy paradox: hipersensibilidad externa con falla interna. Psychic equivalence activo. MBT estandar.</p></div>
+
+    <div class="case-card fade-in"><div class="case-header"><div class="case-name">Luis, 31 &mdash; Psicosis paranoide</div><span class="badge badge-red">PSI</span></div><p>Dos personas conversan; una mira hacia su lado. "Estan coordinando seguirme."</p><code class="mente-code">M&uarr; aberrante / E&uarr; I&uarr; delirante / N cog&uarr;&uarr; afect&plusmn; / T auto aberrante contr&uarr; / Self autoref Other&uarr; hostil &middot; Modo: pretend delirante &middot; Nivel: descontextualizado</code><p style="font-size:.9rem">Hipermentalizacion generativa psicotica. Priors aberrantes. Diferencial vs TLP: persiste fuera de contexto de apego.</p></div>
+
+    <div class="case-card fade-in"><div class="case-header"><div class="case-name">Sofia, 23 &mdash; Ansiedad social</div><span class="badge badge-gray">TAS</span></div><p>Post-presentacion: "El profesor miro su celular, le aburri." Recibe feedback positivo, no le cree.</p><code class="mente-code">M&uarr; ansioso / E&uarr; sesgo I&uarr; autofocal / N cog&uarr; afect&uarr; / T auto sesgado contr&uarr;&uarr; rumiacion / Self&uarr;&uarr; Other&uarr; evaluador &middot; Modo: pretend c/insight &middot; Nivel: post-evento</code><p style="font-size:.9rem">Hipermentalizacion rumiativa CON insight. Diferencial vs TLP: mantiene duda, no conviccion.</p></div>
+
+    <div class="case-card fade-in"><div class="case-header"><div class="case-name">Roberto, 52 &mdash; Depresion mayor</div><span class="badge badge-gray">DEP</span></div><p>"Ya no me importa lo que piensen." Esposa describe distanciamiento, no irritabilidad.</p><code class="mente-code">M&darr; / E&darr; sesgo negativo I&darr; / N cog&plusmn; afect&darr; / T auto&darr; contr rumiativo / Self&uarr; autoacusatorio Other proyeccion &middot; Modo: pretend rumiativo &middot; Nivel: componencial+integrado</code><p style="font-size:.9rem">Hipomentalización secundaria a depresion. Sesgo afectivo negativo. Prior P(rechazo) elevada (active inference).</p></div>
+
+    <div class="case-card fade-in"><div class="case-header"><div class="case-name">Daniela, 19 &mdash; Alexitimia primaria</div><span class="badge badge-gray">ALEX</span></div><p>"No se que siento. Me preguntan si estoy triste, no tengo palabra. Pero noto cuando otros estan mal."</p><code class="mente-code">M&harr; / E&harr; I&harr; / N cog&harr; afect self&darr;&darr; / T auto&harr; contr&harr; / Self&darr;&darr; Other&harr; &middot; Modo: ninguno &middot; Nivel: ecologico self</code><p style="font-size:.9rem">Patron inverso al canonico: Self&darr;&darr; con Other preservado. Foco en self-awareness emocional, no perspective-taking.</p></div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- APLICACIONES -->
+  <section class="section" id="aplicaciones">
+    <h2>Aplicaciones</h2>
+
+    <div class="application-card fade-in"><div class="app-number">01</div><div class="app-content"><p><strong>Plantilla copy-paste para historia clinica</strong></p><p>3 formatos: una linea (evolucion diaria), tres lineas (ingreso), extendido (informe pericial). Cada dimension trazable a literatura primaria. Redactable en &le;5 lineas sin tabla.</p><p class="caveat">Requiere formacion basica en MBT para usar modos pre-mentalizing. Sin esa formacion, limitarse a las 5 dimensiones MENTE.</p></div></div>
+
+    <div class="application-card fade-in"><div class="app-number">02</div><div class="app-content"><p><strong>Bateria escalonada para clinica psiquiatrica hispana</strong></p><p><strong>Tier 1 (30-45 min):</strong> MASC + Hinting + RMET refinado + CAMSQ. <strong>Tier 2 (+30 min):</strong> Faux Pas + TECA/IRI + TMMS-24 + entrevista colateral. <strong>Tier 3:</strong> TASIT-III + EMA + computational.</p><p class="caveat">MASC no validado en español peruano. Bateria aspiracional hasta validacion local.</p></div></div>
+
+    <div class="application-card fade-in"><div class="app-number">03</div><div class="app-content"><p><strong>Tabla de diferenciales rapidos por patron MENTE</strong></p><p>9 perfiles prototipos con codigo MENTE completo. Usable como checklist en consulta para contrastar patron observado con patron esperado y generar hipotesis diagnosticas.</p><p class="caveat">Prototipos son idealizaciones. Pacientes reales tienen perfiles mixtos. Usar como heuristica, no como diagnostico.</p></div></div>
+
+    <div class="application-card fade-in"><div class="app-number">04</div><div class="app-content"><p><strong>7 reglas de razonamiento clinico para residentes</strong></p><p>Regla 1 (descartar M&darr;) y Regla 6 (doble disociacion N como ancla) son las que mas cambian decisiones terapeuticas. Entrenables con casos clinicos tipo MENTE + feedback estructurado.</p><p class="caveat">Las reglas son heuristicas basadas en evidencia, no algoritmos. Requieren juicio clinico contextualizado.</p></div></div>
+
+    <div class="application-card fade-in"><div class="app-number">05</div><div class="app-content"><p><strong>Agenda de investigacion para Lima/Peru</strong></p><p>5 estudios: (1) validacion MASC en español peruano, (2) invarianza MENTE entre ASD/TLP/SCZ, (3) perfil ADHD vs ASD, (4) LLM scoring MASC, (5) MENTE en formacion de residentes. Todos financiables RENACYT.</p><p class="caveat">Estudio 1 (MASC) es prerequisito de todos los demas.</p></div></div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- LIMITACIONES -->
+  <section class="section fade-in" id="limitaciones">
+    <h2>Limitaciones + Gaps</h2>
+    <div class="limitation-item"><span class="badge badge-red">Originalidad</span><span>Plantilla integradora, no teoria nueva. El valor es pragmatico (clinica + docencia + investigacion aplicada).</span></div>
+    <div class="limitation-item"><span class="badge badge-red">Modos</span><span>No hay instrumento estandarizado validado para distinguir psychic equivalence vs pretend vs teleologico. Gap del campo.</span></div>
+    <div class="limitation-item"><span class="badge badge-red">Dimension T</span><span>Dificil de medir clinicamente sin paradigma experimental. En HC se infiere cualitativamente.</span></div>
+    <div class="limitation-item"><span class="badge badge-red">Evidencia</span><span>Asimetrica: cog/afect es solidisima; self/other e internal/external tienen sustento variable.</span></div>
+    <div class="limitation-item"><span class="badge badge-red">Metacognicion</span><span>No incluye mentalizacion sobre la propia mentalizacion. Para casos avanzados, anadir MAI o MCQ.</span></div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- ROUTE -->
+  <section class="section" id="route">
+    <h2>Route to Applicability</h2>
+    <h3 style="color:#2EC4B6;margin-bottom:1rem;font-size:.95rem;text-transform:uppercase;letter-spacing:.06em">Que falta para aplicar</h3>
+    <div class="route-card fade-in"><div class="route-icon">&rarr;</div><p>Validar <strong>MASC en español peruano</strong> con IRT &mdash; prerequisito para que la bateria Tier 1 sea usable</p></div>
+    <div class="route-card fade-in"><div class="route-icon">&rarr;</div><p>Crear <strong>manual de entrenamiento para residentes</strong> con casos MENTE + feedback estructurado + rubrica de evaluacion</p></div>
+    <div class="route-card fade-in"><div class="route-icon">&rarr;</div><p>Desarrollar <strong>instrumento para modos pre-mentalizing</strong> (gap real del campo, oportunidad de paper seminal)</p></div>
+    <div class="route-card fade-in"><div class="route-icon">&rarr;</div><p>Testear <strong>utilidad clinica incremental</strong> de MENTE vs formulacion categorica en decision terapeutica</p></div>
+    <div class="route-card fade-in"><div class="route-icon">&rarr;</div><p>Adaptar <strong>plantilla HC a sistemas electronicos</strong> de registro clinico</p></div>
+
+    <h3 style="color:#E63946;margin-top:2rem;margin-bottom:1rem;font-size:.95rem;text-transform:uppercase;letter-spacing:.06em">Investigacion necesaria</h3>
+    <div class="route-card fade-in"><div class="route-icon" style="color:#E63946">?</div><p><strong>Invarianza MENTE</strong> entre ASD adulto, TLP y SCZ en muestra peruana (N&ge;300/grupo)</p></div>
+    <div class="route-card fade-in"><div class="route-icon" style="color:#E63946">?</div><p><strong>EMA de mentalizacion</strong> como proceso dinamico: los perfiles MENTE son estables o fluctuan?</p></div>
+    <div class="route-card fade-in"><div class="route-icon" style="color:#E63946">?</div><p><strong>Perfil MENTE de ADHD adulto:</strong> dimension motivacional o atencional?</p></div>
+    <div class="route-card fade-in"><div class="route-icon" style="color:#E63946">?</div><p><strong>Acuerdo inter-evaluador:</strong> MENTE mejora la concordancia en formulacion ToM?</p></div>
+    <div class="route-card fade-in"><div class="route-icon" style="color:#E63946">?</div><p><strong>LLMs como scorers de MASC</strong> en español: pipeline + validacion contra gold standard</p></div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- LECTURAS -->
+  <section class="section" id="lecturas">
+    <details>
+      <summary>Lecturas recomendadas (5 referencias)</summary>
+      <div class="details-content">
+        <div class="reading-item"><div class="reading-cite">Luyten P, Fonagy P (2020). The Mentalizing Approach to Psychopathology. Annu Rev Clin Psychol 16:297-325.</div><div class="reading-why">Columna vertebral de MENTE: 4 polaridades dimensionales + 3 modos pre-mentalizing + sustratos neurales.</div></div>
+        <div class="reading-item"><div class="reading-cite">Happe F, Cook JL, Bird G (2017). The Structure of Social Cognition. Annu Rev Psychol 68:243-267.</div><div class="reading-why">Motivacion social como proceso independiente + doble disociacion ToM/empatia. Justifica la M y la N.</div></div>
+        <div class="reading-item"><div class="reading-cite">Schaafsma SM et al. (2015). Deconstructing and reconstructing theory of mind. Trends Cogn Sci 19(2):65-72.</div><div class="reading-why">Descomposicion jerarquica compatible con RDoC. Building blocks y niveles de demanda.</div></div>
+        <div class="reading-item"><div class="reading-cite">Pinkham AE et al. (2024). Reliability of ToM tasks in SCZ/ASD/controls. Schizophr Bull.</div><div class="reading-why">15 tareas comparadas. Conclusion: video-naturalisticas y story-based ganan. Base para bateria Tier 1.</div></div>
+        <div class="reading-item"><div class="reading-cite">Shamay-Tsoory SG, Aharon-Peretz J (2007). Dissociation of cognitive from affective ToM. Psychiatry Res.</div><div class="reading-why">La disociacion neurolesional mas solida del campo. Ancla de la dimension N.</div></div>
+      </div>
+    </details>
+  </section>
+
+  <div style="text-align:center;padding:2rem 0 1rem;border-top:1px solid #E3E0DB;margin-top:2rem">
+    <p style="font-size:.8rem;color:#9B9FA4;margin-bottom:.25rem">Paper Digest &mdash; <strong style="color:#6C7278">Jaflo Lab</strong></p>
+    <p style="font-size:.75rem;color:#9B9FA4;margin-bottom:0">Flores Cohaila J &middot; Modelo MENTE v1.0 &middot; Mayo 2026</p>
+  </div>
+</div>
+
+<script>
+const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.08,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
