@@ -1,1 +1,171 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Paper Digests — JafloMD</title><style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:"DM Sans",-apple-system,sans-serif;background:#F7F5F2;color:#6C7278;line-height:1.75;padding:2rem 1.5rem}h1{font-family:Georgia,serif;font-size:2rem;color:#1A1C1E;margin-bottom:.5rem}p.subtitle{color:#9B9FA4;margin-bottom:2rem}.container{max-width:780px;margin:0 auto}.digest-list{list-style:none}.digest-list li{padding:1rem;border-bottom:1px solid #E3E0DB}.digest-list a{color:#1A1C1E;text-decoration:none;font-weight:500}.digest-list a:hover{color:#E63946}</style></head><body><div class="container"><h1>Paper Digests</h1><p class="subtitle">Destilaciones interactivas de papers academicos — by @jaflomd</p><ul class="digest-list"><li><em>Proximamente: primer digest</em></li></ul></div></body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paper Digests — JafloMD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', -apple-system, sans-serif;
+      background: #F7F5F2;
+      color: #6C7278;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+    h1 {
+      font-family: 'Lora', serif;
+      font-weight: 700;
+      font-size: 2.2rem;
+      color: #1A1C1E;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.5rem;
+    }
+    .subtitle {
+      color: #9B9FA4;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .description {
+      color: #6C7278;
+      font-size: 0.95rem;
+      margin-bottom: 2.5rem;
+      max-width: 600px;
+    }
+    .count-badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      background: rgba(46, 196, 182, 0.12);
+      color: #2EC4B6;
+      margin-bottom: 2rem;
+    }
+
+    .digest-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    .digest-card {
+      background: #FFFFFF;
+      border: 1px solid #E3E0DB;
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-decoration: none;
+      display: block;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .digest-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+    }
+    .digest-card .card-date {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #9B9FA4;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.35rem;
+    }
+    .digest-card .card-title {
+      font-family: 'Lora', serif;
+      font-weight: 600;
+      font-size: 1.15rem;
+      color: #1A1C1E;
+      line-height: 1.4;
+      margin-bottom: 0.5rem;
+    }
+    .digest-card .card-meta {
+      font-size: 0.85rem;
+      color: #9B9FA4;
+    }
+    .digest-card .card-description {
+      font-size: 0.9rem;
+      color: #6C7278;
+      margin-top: 0.5rem;
+      line-height: 1.6;
+    }
+    .card-badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      margin-right: 0.35rem;
+    }
+    .badge-sr { background: rgba(46, 196, 182, 0.12); color: #2EC4B6; }
+    .badge-theoretical { background: #F0EDEA; color: #6C7278; }
+
+    footer {
+      text-align: center;
+      padding: 3rem 0 1rem;
+      color: #9B9FA4;
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 2rem 1rem 3rem; }
+      h1 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Paper Digests</h1>
+    <p class="subtitle">by @jaflomd</p>
+    <p class="description">Destilaciones interactivas de papers academicos. Cada digest transforma un paper en una experiencia de lectura con principios transferibles, aplicaciones concretas, y honestidad epistemica.</p>
+    <span class="count-badge">3 digests</span>
+
+    <div class="digest-grid">
+
+      <a class="digest-card" href="2026-05-23-hui-2020-rdoc-nvs-antidepressants.html">
+        <div class="card-date">23 Mayo 2026</div>
+        <div class="card-title">RDoC & Antidepresivos: Utilidad clinica del dominio Negative Valence Systems</div>
+        <div class="card-meta">
+          <span class="card-badge badge-sr">Revision sistematica</span>
+          Hui A &middot; PLOS ONE (2020)
+        </div>
+        <div class="card-description">Explora si los constructos RDoC (Acute Threat, Potential Threat, Loss) pueden diferenciar la efectividad de antidepresivos mejor que las categorias DSM. 13 estudios, 9 antidepresivos, evidencia preliminar de utilidad transdiagnostica y dimensional.</div>
+      </a>
+
+      <a class="digest-card" href="2026-05-17-modelo-mente-tom.html">
+        <div class="card-date">17 Mayo 2026</div>
+        <div class="card-title">Modelo de la Mente y Teoria de la Mente</div>
+        <div class="card-meta">
+          <span class="card-badge badge-theoretical">Teorico</span>
+        </div>
+        <div class="card-description">Exploracion de los modelos mentales y su relacion con la teoria de la mente en contexto clinico y pedagogico.</div>
+      </a>
+
+      <a class="digest-card" href="2026-05-16-tom-transdiagnostico-review.html">
+        <div class="card-date">16 Mayo 2026</div>
+        <div class="card-title">Teoria de la Mente: Revision Transdiagnostica</div>
+        <div class="card-meta">
+          <span class="card-badge badge-sr">Revision</span>
+        </div>
+        <div class="card-description">Revision transdiagnostica de la Teoria de la Mente a traves de diferentes condiciones clinicas.</div>
+      </a>
+
+    </div>
+
+    <footer>
+      <p>JAFLO Lab &middot; Paper Digestor v0.2.0</p>
+    </footer>
+  </div>
+</body>
+</html>

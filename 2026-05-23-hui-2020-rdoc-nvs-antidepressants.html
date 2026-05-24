@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RDoC & Antidepresivos: Utilidad clínica del dominio Negative Valence Systems — Hui (2020)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Roboto+Slab:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* ============ RESET & BASE ============ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', -apple-system, sans-serif;
+      background: #F7F5F2;
+      color: #6C7278;
+      font-size: 1rem;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ============ CONTAINER ============ */
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    /* ============ NAV STICKY ============ */
+    .nav-sticky {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(247, 245, 242, 0.92);
+      backdrop-filter: blur(14px) saturate(1.4);
+      -webkit-backdrop-filter: blur(14px) saturate(1.4);
+      border-bottom: 1px solid #E3E0DB;
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      gap: 1.25rem;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .nav-sticky::-webkit-scrollbar { display: none; }
+    .nav-sticky a {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #9B9FA4;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: color 0.2s;
+      padding: 0.25rem 0;
+    }
+    .nav-sticky a:hover { color: #E63946; }
+
+    /* ============ TYPOGRAPHY ============ */
+    h1 {
+      font-family: 'Lora', serif;
+      font-weight: 700;
+      font-size: 2rem;
+      line-height: 1.3;
+      color: #1A1C1E;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.75rem;
+    }
+    h2 {
+      font-family: 'Lora', serif;
+      font-weight: 600;
+      font-size: 1.4rem;
+      line-height: 1.35;
+      color: #1A1C1E;
+      margin-bottom: 1rem;
+    }
+    h3 {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #1A1C1E;
+      margin-bottom: 0.5rem;
+    }
+    p { margin-bottom: 1rem; }
+    strong { color: #1A1C1E; font-weight: 700; }
+
+    /* ============ SECTIONS ============ */
+    .section {
+      margin-bottom: 3rem;
+      scroll-margin-top: 4rem;
+    }
+    .section-divider {
+      border: none;
+      border-top: 1px solid #E3E0DB;
+      margin: 3rem 0;
+    }
+
+    /* ============ BADGES ============ */
+    .badge {
+      display: inline-block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+    }
+    .badge-teal { background: rgba(46,196,182,0.12); color: #2EC4B6; }
+    .badge-red { background: rgba(230,57,70,0.1); color: #E63946; }
+    .badge-gray { background: #F0EDEA; color: #6C7278; }
+
+    /* ============ QUICK CHECK ============ */
+    .quick-check {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 0.75rem;
+      margin: 1.25rem 0;
+    }
+    .qc-item {
+      background: #FFFFFF;
+      border: 1px solid #E3E0DB;
+      border-radius: 8px;
+      padding: 1rem;
+      text-align: center;
+    }
+    .qc-item .qc-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #9B9FA4;
+      margin-bottom: 0.35rem;
+    }
+    .qc-item .qc-value {
+      font-family: 'Lora', serif;
+      font-weight: 600;
+      font-size: 1rem;
+      color: #1A1C1E;
+    }
+
+    /* ============ STAT CARDS ============ */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .stat-card {
+      background: #FFFFFF;
+      border: 1px solid #E3E0DB;
+      border-radius: 8px;
+      padding: 1.25rem;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .stat-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+    .stat-card .number {
+      font-family: 'Roboto Slab', serif;
+      font-weight: 700;
+      font-size: 2rem;
+      color: #2EC4B6;
+      line-height: 1.2;
+    }
+    .stat-card .stat-label {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #9B9FA4;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-top: 0.35rem;
+    }
+    .stat-card .stat-context {
+      font-size: 0.85rem;
+      color: #6C7278;
+      margin-top: 0.5rem;
+      line-height: 1.5;
+    }
+
+    /* ============ BLOCKQUOTE ============ */
+    blockquote {
+      border-left: 3px solid #E63946;
+      margin: 1.5rem 0;
+      padding: 1rem 1.25rem;
+      background: rgba(230, 57, 70, 0.04);
+      border-radius: 0 6px 6px 0;
+    }
+    blockquote p {
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: #1A1C1E;
+      margin: 0;
+    }
+    blockquote cite {
+      display: block;
+      font-family: 'DM Sans', sans-serif;
+      font-style: normal;
+      font-size: 0.8rem;
+      color: #9B9FA4;
+      margin-top: 0.5rem;
+    }
+
+    /* ============ DETAILS / SUMMARY ============ */
+    details {
+      margin: 1rem 0;
+      border: 1px solid #E3E0DB;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    details summary {
+      padding: 1rem 1.25rem;
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: #1A1C1E;
+      cursor: pointer;
+      background: #F0EDEA;
+      transition: background 0.2s;
+      list-style: none;
+    }
+    details summary::-webkit-details-marker { display: none; }
+    details summary::before { content: '\25B8  '; color: #9B9FA4; }
+    details[open] summary::before { content: '\25BE  '; }
+    details summary:hover { background: #E8E5E0; }
+    details .details-content { padding: 1.25rem; background: #FFFFFF; }
+    details .details-content p:last-child { margin-bottom: 0; }
+
+    /* ============ PRINCIPLE CARDS ============ */
+    .principle-card {
+      background: #FFFFFF;
+      border: 1px solid #E3E0DB;
+      border-left: 4px solid #2EC4B6;
+      border-radius: 0 8px 8px 0;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.25rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .principle-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+    .principle-card h3 { margin-bottom: 0.5rem; }
+    .principle-card .principle-num {
+      font-family: 'Roboto Slab', serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: #2EC4B6;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.35rem;
+    }
+    .principle-card .transferencia {
+      font-size: 0.85rem;
+      color: #9B9FA4;
+      font-style: italic;
+      margin-top: 0.75rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid #E3E0DB;
+    }
+
+    /* ============ APPLICATION CARDS ============ */
+    .application-card {
+      background: #FFFFFF;
+      border: 1px solid #E3E0DB;
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .application-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+    .application-card .app-number {
+      font-family: 'Roboto Slab', serif;
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: #2EC4B6;
+      min-width: 2rem;
+      line-height: 1.4;
+    }
+    .application-card .app-content { flex: 1; }
+    .application-card .caveat {
+      font-size: 0.85rem;
+      color: #9B9FA4;
+      margin-top: 0.5rem;
+      padding-left: 0.75rem;
+      border-left: 2px solid #E3E0DB;
+    }
+
+    /* ============ LIMITATION ITEMS ============ */
+    .limitation-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      padding: 0.75rem 0;
+    }
+    .limitation-item .badge { flex-shrink: 0; margin-top: 0.15rem; }
+
+    /* ============ GLOSSARY ============ */
+    .glossary dl { margin: 0; }
+    .glossary dt {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      color: #1A1C1E;
+      font-size: 0.95rem;
+      margin-top: 1rem;
+    }
+    .glossary dt:first-child { margin-top: 0; }
+    .glossary dd {
+      font-size: 0.9rem;
+      color: #6C7278;
+      margin-left: 0;
+      margin-top: 0.25rem;
+      line-height: 1.6;
+    }
+
+    /* ============ READING LIST ============ */
+    .reading-item {
+      padding: 1rem 0;
+      border-bottom: 1px solid #E3E0DB;
+    }
+    .reading-item:last-child { border-bottom: none; }
+    .reading-item .reading-cite {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      color: #1A1C1E;
+      font-size: 0.95rem;
+    }
+    .reading-item .reading-why {
+      font-size: 0.85rem;
+      color: #9B9FA4;
+      margin-top: 0.25rem;
+    }
+
+    /* ============ CLEAN TABLE ============ */
+    .clean-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+    }
+    .clean-table thead th {
+      text-align: left;
+      font-weight: 500;
+      color: #9B9FA4;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-size: 0.75rem;
+      padding: 0.75rem 1rem;
+      border-bottom: 2px solid #E3E0DB;
+    }
+    .clean-table tbody td {
+      padding: 0.75rem 1rem;
+      color: #1A1C1E;
+      border-bottom: 1px solid #E3E0DB;
+      vertical-align: top;
+    }
+    .clean-table tbody tr:last-child td { border-bottom: none; }
+
+    /* ============ ROUTE CARDS ============ */
+    .route-card {
+      background: #FFFFFF;
+      border: 1px solid #E3E0DB;
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 0.75rem;
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+    .route-card .route-icon {
+      font-size: 1.2rem;
+      line-height: 1.5;
+      flex-shrink: 0;
+    }
+    .route-card .route-content { flex: 1; }
+
+    /* ============ CONSTRUCT MAP ============ */
+    .construct-map {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+      margin: 1.5rem 0;
+    }
+    .construct-row {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 0.75rem;
+      align-items: center;
+      background: #FFFFFF;
+      border: 1px solid #E3E0DB;
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+    }
+    .construct-row .construct-name {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: #1A1C1E;
+    }
+    .construct-row .construct-drugs {
+      font-size: 0.85rem;
+      color: #6C7278;
+    }
+    .construct-row .construct-drugs .effective {
+      color: #2EC4B6;
+      font-weight: 500;
+    }
+    .construct-row .construct-drugs .ineffective {
+      color: #E63946;
+      font-weight: 500;
+    }
+
+    /* ============ FADE IN ANIMATION ============ */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============ RESPONSIVE ============ */
+    @media (max-width: 600px) {
+      .container { padding: 1rem 1rem 3rem; }
+      .nav-sticky { font-size: 0.75rem; gap: 1rem; padding: 0.6rem 1rem; }
+      h1 { font-size: 1.6rem; }
+      h2 { font-size: 1.2rem; }
+      .quick-check { grid-template-columns: repeat(2, 1fr); }
+      .stats-grid { grid-template-columns: 1fr; }
+      .stat-card .number { font-size: 1.6rem; }
+      .application-card { flex-direction: column; gap: 0.5rem; }
+      .construct-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ======== NAV STICKY ======== -->
+  <nav class="nav-sticky">
+    <a href="#quick-check">Quick Check</a>
+    <a href="#metodos">Metodos</a>
+    <a href="#datos">Datos clave</a>
+    <a href="#principios">Principios</a>
+    <a href="#aplicaciones">Aplicaciones</a>
+    <a href="#limitaciones">Limitaciones</a>
+    <a href="#route">Route</a>
+  </nav>
+
+  <div class="container">
+
+    <!-- ======== HEADER ======== -->
+    <header style="margin-bottom: 2rem; margin-top: 1rem;">
+      <h1>RDoC & Antidepresivos: Utilidad clinica del dominio Negative Valence Systems</h1>
+      <p style="color: #9B9FA4; font-size: 0.9rem; margin-bottom: 0;">
+        Andrew Hui &middot; <em>PLOS ONE</em> (2020) &middot; doi:10.1371/journal.pone.0243057
+      </p>
+    </header>
+
+    <!-- ======== 1. QUICK CHECK ======== -->
+    <section class="section fade-in" id="quick-check">
+      <h2>Quick Check</h2>
+      <div class="quick-check">
+        <div class="qc-item">
+          <div class="qc-label">Tipo de estudio</div>
+          <div class="qc-value"><span class="badge badge-teal">Revision sistematica</span></div>
+        </div>
+        <div class="qc-item">
+          <div class="qc-label">Estudios incluidos</div>
+          <div class="qc-value">13 de 221</div>
+        </div>
+        <div class="qc-item">
+          <div class="qc-label">Poblacion</div>
+          <div class="qc-value">Adultos con Dx DSM heterogeneos</div>
+        </div>
+        <div class="qc-item">
+          <div class="qc-label">Dominio RDoC</div>
+          <div class="qc-value">Negative Valence Systems</div>
+        </div>
+        <div class="qc-item">
+          <div class="qc-label">Journal</div>
+          <div class="qc-value"><span class="badge badge-gray">PLOS ONE</span></div>
+        </div>
+        <div class="qc-item">
+          <div class="qc-label">Nivel de evidencia</div>
+          <div class="qc-value">Bajo (100% alto riesgo sesgo)</div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ======== 2. COMO LEER ESTO ======== -->
+    <section class="section fade-in" id="como-leer">
+      <details>
+        <summary>Como leer este paper</summary>
+        <div class="details-content">
+          <p>Este paper intenta responder una pregunta provocadora: <strong>puede el marco RDoC diferenciar la efectividad de antidepresivos mejor que el DSM?</strong> En vez de evaluar si un antidepresivo funciona para "depresion" o "ansiedad" (categorias DSM), evalua si funciona para constructos dimensionales del dominio Negative Valence Systems: Acute Threat (miedo), Potential Threat (ansiedad), y Loss (perdida).</p>
+          <p>Usa como unidad de analisis las escalas psicometricas que Watson, Stanton &amp; Clark (2017) propusieron como representantes de estos constructos. Es un paper exploratorio, no confirmatorio &mdash; genera hipotesis mas que las prueba.</p>
+          <p><strong>En este documento encontraras:</strong> un mapa de que antidepresivos funcionan en que constructos NVS, evidencia de que Potential Threat y Loss podrian ser un solo constructo (Distress), y la implicancia de que los antidepresivos son efectivos en rangos "normales" de las escalas.</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- ======== 3. MINI GLOSARIO ======== -->
+    <section class="section fade-in" id="glosario">
+      <details>
+        <summary>Glosario: 8 terminos clave</summary>
+        <div class="details-content glossary">
+          <dl>
+            <dt>RDoC (Research Domain Criteria)</dt>
+            <dd>Framework del NIMH que conceptualiza la psicopatologia como constructos conductuales-psicologicos con base neurobiologica, dimensionales de normalidad a patologia. Alternativa al DSM para investigacion.</dd>
+
+            <dt>Negative Valence Systems (NVS)</dt>
+            <dd>Dominio RDoC que agrupa respuestas a estimulos aversivos. Incluye 5 constructos: Acute Threat, Potential Threat, Sustained Threat, Frustrative Nonreward, y Loss.</dd>
+
+            <dt>Acute Threat (AT) / Fear</dt>
+            <dd>Constructo NVS: respuesta de miedo agudo ante amenaza inmediata. Medido aqui con Fear Questionnaire (FQ): subescalas Agorafobia y Blood Injury.</dd>
+
+            <dt>Potential Threat (PT) / Anxiety</dt>
+            <dd>Constructo NVS: ansiedad anticipatoria ante amenaza potencial. Medido aqui con POMS:Tension. El constructo DSM mas cercano es GAD.</dd>
+
+            <dt>Loss</dt>
+            <dd>Constructo NVS: respuesta a perdida. Medido aqui con POMS:Depression. El constructo DSM mas cercano es MDD.</dd>
+
+            <dt>POMS (Profile of Mood States)</dt>
+            <dd>Cuestionario de 65 adjetivos que genera 6 subescalas. En este paper interesan Tension (proxy de PT) y Depression (proxy de Loss).</dd>
+
+            <dt>FQ (Fear Questionnaire)</dt>
+            <dd>Escala de Marks &amp; Mathews (1979). Las subescalas Agorafobia y Blood Injury miden evitacion conductual ante miedo, no distress subjetivo.</dd>
+
+            <dt>SMD (Standardized Mean Difference)</dt>
+            <dd>Tamano del efecto estandarizado vs placebo. Permite comparar efectividad entre estudios con diferentes escalas. 0.2 = debil, 0.5 = moderado, 0.8 = grande.</dd>
+          </dl>
+        </div>
+      </details>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ======== 4. METODOS ======== -->
+    <section class="section fade-in" id="metodos">
+      <h2>Metodos</h2>
+      <p>Busqueda sistematica en 4 bases de datos (MEDLINE, Web of Science, EMBASE, PsycINFO). Criterios: ensayos clinicos de antidepresivos ISRS o generacion posterior, dosis terapeutica &ge;4 semanas, que reporten subescalas propuestas por Watson et al. (2017) para constructos NVS. Sin restriccion por poblacion, placebo, o cegamiento. Riesgo de sesgo: RoB2 (RCTs) y ROBINS-I (no randomizados).</p>
+      <details>
+        <summary>Ver metodos completos</summary>
+        <div class="details-content">
+          <h3>Estrategia de busqueda</h3>
+          <p>Nombres de 18 antidepresivos individuales cruzados con 7 instrumentos psicometricos (PANAS-X, POMS, TAI, NEO-PI-3, FI-FFM, FQ). Busqueda en campo "abstract" (MEDLINE, EMBASE, PsycINFO) y "topic" (Web of Science) para maximizar sensibilidad a estudios no disenados para responder la pregunta de esta revision.</p>
+
+          <h3>Inclusion y exclusion</h3>
+          <p><strong>Inclusion:</strong> Ensayos clinicos con al menos un grupo con un antidepresivo ISRS o posterior, dosis terapeutica diaria por al menos 4 semanas, outcomes con al menos una subescala de Watson et al.</p>
+          <p><strong>Exclusion:</strong> Administracion concomitante de agente biologico. No se excluyo por edad, comorbilidades medicas, ausencia de placebo, o falta de cegamiento &mdash; intencionalmente, para evaluar la aplicabilidad transdiagnostica del paradigma RDoC.</p>
+
+          <h3>Instrumentos de interes</h3>
+          <p><strong>Acute Threat:</strong> FQ subescalas Agoraphobia y Blood Injury.<br>
+          <strong>Potential Threat:</strong> POMS:Tension, PANAS-X:Fear, NEO-PI-3:Anxiety, TAI:Anxiety, FI-FFM:Anxiety.<br>
+          <strong>Loss:</strong> POMS:Depression, PANAS-X:Sadness, TAI:Depression, FI-FFM:Depression, NEO-PI-3:Depression.</p>
+          <p>Solo 3 de 7 instrumentos fueron encontrados en la literatura (FQ, POMS:Tension, POMS:Depression).</p>
+
+          <h3>Riesgo de sesgo</h3>
+          <p>RCTs evaluados con Cochrane RoB2 (5 dominios). Estudios no randomizados con ROBINS-I (7 dominios). Resultado: 100% de los 13 estudios con riesgo alto o critico.</p>
+
+          <h3>Meta-analisis</h3>
+          <p>Se considero pero no fue posible (n=0 para sintesis cuantitativa). Razones: solo 1 estudio por antidepresivo-outcome en la mayoria de casos, medidas de interes problematicas en 3 estudios, estadisticas ambiguas en 1.</p>
+        </div>
+      </details>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ======== 5. DATOS CLAVE ======== -->
+    <section class="section fade-in" id="datos">
+      <h2>Datos clave</h2>
+
+      <!-- CONSTRUCT MAP -->
+      <h3 style="margin-bottom: 0.75rem;">Mapa: Antidepresivo &times; Constructo NVS</h3>
+      <div class="construct-map">
+        <div class="construct-row">
+          <div class="construct-name">Acute Threat</div>
+          <div class="construct-drugs">
+            <span class="effective">Paroxetina</span> &middot;
+            <span class="effective">Citalopram</span> &middot;
+            <span class="effective">Fluvoxamina</span> &middot;
+            <span class="ineffective">Escitalopram (NS)</span> &middot;
+            <span class="ineffective">Nefazodona (NS)</span>
+          </div>
+        </div>
+        <div class="construct-row">
+          <div class="construct-name">Potential Threat</div>
+          <div class="construct-drugs">
+            <span class="effective">Fluoxetina</span> &middot;
+            <span class="effective">Desvenlafaxina</span> &middot;
+            <span class="effective">Sertralina</span> &middot;
+            <span class="effective">Venlafaxina*</span>
+          </div>
+        </div>
+        <div class="construct-row">
+          <div class="construct-name">Loss</div>
+          <div class="construct-drugs">
+            <span class="effective">Sertralina</span> &middot;
+            <span class="effective">Fluvoxamina</span> &middot;
+            <span class="effective">Fluoxetina</span> &middot;
+            <span class="effective">Desvenlafaxina</span> &middot;
+            <span class="effective">Venlafaxina*</span>
+          </div>
+        </div>
+      </div>
+      <p style="font-size: 0.8rem; color: #9B9FA4;">* Sin significance testing formal. <span class="effective" style="color:#2EC4B6;">Teal</span> = efectivo. <span class="ineffective" style="color:#E63946;">Rojo</span> = no significativo.</p>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="number">1.1</div>
+          <div class="stat-label">SMD Fluoxetina (PT)</div>
+          <div class="stat-context">Efecto grande vs placebo en POMS:Tension. Superior a desvenlafaxina (0.22-0.26).</div>
+        </div>
+        <div class="stat-card">
+          <div class="number">0.93</div>
+          <div class="stat-label">SMD Fluoxetina (Loss)</div>
+          <div class="stat-context">Efecto grande en POMS:Depression. Superior a sertralina (0.39-0.56) y desvenlafaxina (0.22-0.26).</div>
+        </div>
+        <div class="stat-card">
+          <div class="number">46.1%</div>
+          <div class="stat-label">Reduccion FQ:Agorafobia</div>
+          <div class="stat-context">Paroxetina 20-50mg, 8 semanas. De 15.6 a 8.4 en panico &plusmn; agorafobia.</div>
+        </div>
+        <div class="stat-card">
+          <div class="number">13/13</div>
+          <div class="stat-label">Alto riesgo de sesgo</div>
+          <div class="stat-context">100% de estudios incluidos con riesgo alto o critico. Conclusiones preliminares.</div>
+        </div>
+        <div class="stat-card">
+          <div class="number">p = 0.09</div>
+          <div class="stat-label">Nefazodona para AT</div>
+          <div class="stat-context">Inefectivo en FQ:Agorafobia pese a ser "efectivo" en fobia social con STAI.</div>
+        </div>
+        <div class="stat-card">
+          <div class="number">3 / 7</div>
+          <div class="stat-label">Instrumentos encontrados</div>
+          <div class="stat-context">De 7 escalas propuestas por Watson et al., solo FQ, POMS:Tension y POMS:Depression aparecieron.</div>
+        </div>
+      </div>
+
+      <blockquote>
+        <p>The inability to isolate specific biological markers of psychopathology has led to a persistent reliance on psychometric measures that has, with few exceptions, struggled to clearly differentiate amongst individual agent or class in terms of effectiveness.</p>
+        <cite>&mdash; Introduction, p.2</cite>
+      </blockquote>
+
+      <blockquote>
+        <p>Psychometrics that are sensitive to the phenomenological manifestations of a new paradigm of pathophysiology with clearer biological underpinnings should allow for clearer descriptions of the clinical effectiveness of antidepressants.</p>
+        <cite>&mdash; Introduction, p.2</cite>
+      </blockquote>
+
+      <details>
+        <summary>Ver resultados completos por constructo</summary>
+        <div class="details-content">
+          <h3>Acute Threat (FQ:Agoraphobia / FQ:Blood Injury)</h3>
+          <table class="clean-table">
+            <thead>
+              <tr><th>Antidepresivo</th><th>Dosis / Duracion</th><th>Muestra</th><th>Resultado</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Paroxetina</td><td>20-50mg, 8 sem</td><td>Panico &plusmn; agorafobia (n=25)</td><td>FQ:Ago 15.6&rarr;8.4 (-46.1%), p&lt;0.05</td></tr>
+              <tr><td>Paroxetina</td><td>10-60mg, 12 sem</td><td>Fobia social + heterogeneo (n=18)</td><td>FQ:Ago 11.8&rarr;5.8, p=0.017</td></tr>
+              <tr><td>Citalopram</td><td>20-50mg, 8 sem</td><td>Panico &plusmn; agorafobia (n=27)</td><td>FQ:Ago 15.7&rarr;9.9 (-36.9%); FQ:BI 15.6&rarr;8.4 (-46.2%)</td></tr>
+              <tr><td>Fluvoxamina</td><td>150mg, 12 sem</td><td>Panico &plusmn; agorafobia (n=29)</td><td>vs placebo, p&lt;0.05</td></tr>
+              <tr><td>Escitalopram</td><td>10-20mg, 12 sem</td><td>Fobia especifica (n=5)</td><td>3.0&rarr;1.2, NS</td></tr>
+              <tr><td>Nefazodona</td><td>200-600mg, 12 sem</td><td>Fobia social generalizada (n=21)</td><td>9.0&rarr;6.4, p=0.09 (NS)</td></tr>
+            </tbody>
+          </table>
+
+          <h3>Potential Threat (POMS:Tension)</h3>
+          <table class="clean-table">
+            <thead>
+              <tr><th>Antidepresivo</th><th>Dosis / Duracion</th><th>Muestra</th><th>Resultado</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Desvenlafaxina</td><td>100mg, 12 sem</td><td>VMS sin Dx DSM (n=120)</td><td>Baseline 9.3, cambio -4.1; SMD vs placebo 0.26</td></tr>
+              <tr><td>Desvenlafaxina</td><td>150mg, 12 sem</td><td>VMS sin Dx DSM (n=117)</td><td>Baseline 9.0, cambio -3.9; SMD vs placebo 0.22</td></tr>
+              <tr><td>Fluoxetina</td><td>20mg, 6 meses</td><td>PMS sin Dx DSM-IIIR (n=8)</td><td>Luteal: 39.1 vs placebo 50.4; SMD 1.1</td></tr>
+              <tr><td>Venlafaxina</td><td>75-150mg, 8 sem</td><td>MDD 1er episodio (n=25)</td><td>23.68&rarr;9.60, p&lt;0.001 (sin test vs placebo)</td></tr>
+              <tr><td>Sertralina</td><td>50-150mg, 12 sem</td><td>MDD geriatrico (n=26)</td><td>Cambio -5.9 vs nortriptilina, p=0.01</td></tr>
+            </tbody>
+          </table>
+
+          <h3>Loss (POMS:Depression)</h3>
+          <table class="clean-table">
+            <thead>
+              <tr><th>Antidepresivo</th><th>Dosis / Duracion</th><th>Muestra</th><th>Resultado</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Sertralina</td><td>50/100/200mg, 6 sem</td><td>MDD heterogeneo (n=261)</td><td>Cambio -0.5; SMD vs placebo 0.39; p&lt;0.01</td></tr>
+              <tr><td>Sertralina</td><td>50-200mg, 8 sem</td><td>MDD heterogeneo (n=128)</td><td>Cambio -1.0; SMD vs placebo 0.56; p&lt;0.001</td></tr>
+              <tr><td>Sertralina</td><td>50-150mg, 12 sem</td><td>MDD geriatrico (n=12)</td><td>1.5&rarr;1.2, NS</td></tr>
+              <tr><td>Desvenlafaxina</td><td>100mg, 12 sem</td><td>VMS sin Dx DSM (n=120)</td><td>Cambio -5.5; SMD vs placebo 0.22</td></tr>
+              <tr><td>Desvenlafaxina</td><td>150mg, 12 sem</td><td>VMS sin Dx DSM (n=117)</td><td>Cambio -4.5; SMD vs placebo 0.35</td></tr>
+              <tr><td>Fluoxetina</td><td>20mg, 6 meses</td><td>PMS sin Dx DSM-IIIR (n=8)</td><td>Luteal: 39.7 vs placebo 50.9; SMD 0.93</td></tr>
+              <tr><td>Fluvoxamina</td><td>50-200mg, 4 sem</td><td>MDD heterogeneo (n=9)</td><td>vs placebo p=0.028 (sem 3), p=0.06 (sem 4)</td></tr>
+              <tr><td>Venlafaxina</td><td>75-150mg, 8 sem</td><td>MDD 1er episodio (n=25)</td><td>37.16&rarr;11.12 (-70.2%), p&lt;0.001 (sin test vs placebo)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ======== 6. PRINCIPIOS DESTILADOS ======== -->
+    <section class="section fade-in" id="principios">
+      <h2>Principios destilados</h2>
+
+      <div class="principle-card">
+        <div class="principle-num">Principio 01</div>
+        <h3>La unidad de analisis psicometrica determina que ves</h3>
+        <p>Nefazodona fue "efectiva" para fobia social medida con STAI, pero inefectiva medida con FQ:Agoraphobia. El instrumento no es neutro &mdash; mide constructos latentes diferentes (distress general vs miedo especifico). La eleccion de la escala predetermina la conclusion.</p>
+        <p><strong>Evidencia:</strong> Nefazodona p=0.09 en FQ:Agoraphobia vs mejoria significativa en STAI, BDI, y otras escalas del mismo estudio (Van Ameringen 1999).</p>
+        <p class="transferencia">Transferibilidad: Aplica a cualquier trial farmacologico o psicoterapeutico. La pregunta "funciona?" siempre debe ir seguida de "medido con que?"</p>
+      </div>
+
+      <div class="principle-card">
+        <div class="principle-num">Principio 02</div>
+        <h3>La validez discriminante es el talon de Aquiles de la psicometria psiquiatrica</h3>
+        <p>Instrumentos como el STAI miden afectividad negativa general, no ansiedad especifica. Watson et al. (2017) demostraron que la mayoria de escalas "de ansiedad" y "de depresion" correlacionan tanto entre si que no discriminan constructos. Sin validez discriminante, no hay clasificacion util.</p>
+        <p><strong>Evidencia:</strong> Solo 3 de 7 instrumentos propuestos por Watson et al. fueron encontrados en la literatura. La ausencia de los otros 4 refleja la primacia de escalas DSM-validadas que carecen de discriminacion entre constructos NVS.</p>
+        <p class="transferencia">Transferibilidad: Antes de elegir cualquier outcome measure, verificar si discrimina el constructo que pretende medir o si mide distress general.</p>
+      </div>
+
+      <div class="principle-card">
+        <div class="principle-num">Principio 03</div>
+        <h3>Potential Threat y Loss pueden ser un solo constructo: Distress</h3>
+        <p>Los 3 estudios que midieron PT y Loss simultaneamente encontraron scores con overlap significativo en intervalos de confianza, respuestas similares a tratamiento, y convergencia neurobiologica (ACC, amigdala, GABA-A). El grupo original de RDoC propuso "Distress" como constructo unico antes de dividirlo por considerarlo "vago y difuso".</p>
+        <p><strong>Evidencia:</strong> En muestras PMS/VMS, POMS:Tension y POMS:Depression con overlap de ICs en baseline y endpoint. Neuroimagen incapaz de diferenciar GAD de MDD (Goossen 2019). Analisis factoriales consistentemente muestran "fear" + "distress", no "anxiety" + "depression".</p>
+        <p class="transferencia">Transferibilidad: La distincion clinica ansiedad/depresion podria ser un artefacto clasificatorio, no una realidad neurobiologica. Implicancias para comorbilidad, formulacion, y tratamiento.</p>
+      </div>
+
+      <div class="principle-card">
+        <div class="principle-num">Principio 04</div>
+        <h3>El enfoque dimensional detecta efectividad donde el categorico no mira</h3>
+        <p>Antidepresivos fueron efectivos en rangos "normales" de FQ:Agoraphobia (scores dentro de normas poblacionales). Esto es invisible para el DSM que requiere un umbral diagnostico para actuar. La dimensionalidad permite ver tratamiento como modulacion de un continuo, no como correccion de un estado patologico discreto.</p>
+        <p><strong>Evidencia:</strong> Baselines FQ:Agoraphobia en muestras de fobia social generalizada (9.0-11.8) dentro del rango normal (11.8 &plusmn; 8.6 poblacional). Antidepresivos aun efectivos en estas muestras.</p>
+        <p class="transferencia">Transferibilidad: Sugiere que el concepto de "subumbral" podria ser clinicamente relevante para tratamiento, no solo para screening.</p>
+      </div>
+
+      <div class="principle-card">
+        <div class="principle-num">Principio 05</div>
+        <h3>La heterogeneidad diagnostica no impide la replicacion transdiagnostica</h3>
+        <p>Paroxetina replico efectividad para AT en muestras con diagnosticos DSM completamente diferentes. Sertralina replico para Loss. El constructo RDoC, no el diagnostico, fue el denominador comun. Esto es notable: si los constructos fueran meros proxies de categorias DSM, la replicacion transdiagnostica seria improbable.</p>
+        <p><strong>Evidencia:</strong> Paroxetina efectiva para AT en: (a) panico &plusmn; agorafobia (Perna 2001), y (b) fobia social generalizada + MDD + TOC + dependencia de alcohol (Mancini 1996). Sertralina efectiva para Loss en: (a) MDD heterogeneo (Fabre 1995, Lydiard 1997).</p>
+        <p class="transferencia">Transferibilidad: Un framework transdiagnostico puede ser mas robusto que las categorias diagnosticas para predecir respuesta farmacologica.</p>
+      </div>
+
+      <div class="principle-card">
+        <div class="principle-num">Principio 06</div>
+        <h3>La farmacologia de afinidad relativa, no absoluta, explica la diferenciacion</h3>
+        <p>Sertralina es inhibidor mas potente del transportador de noradrenalina que venlafaxina y desvenlafaxina. La distincion ISRS vs IRSN es sobre afinidad relativa serotonina/noradrenalina, no sobre presencia/ausencia de accion noradrenergica.</p>
+        <p><strong>Evidencia:</strong> Sertralina tiene mayor afinidad por NET que venlafaxina y desvenlafaxina, y solo ligeramente menor que duloxetina, ademas de mayor afinidad absoluta por DAT (Macaluso 2019, Beique 1998).</p>
+        <p class="transferencia">Transferibilidad: Invalida razonamientos simplistas de "mecanismo de accion" en psicofarmacologia. La ensenanza y prescripcion deben basarse en espectro de afinidades, no en categorias discretas.</p>
+      </div>
+
+      <div class="principle-card">
+        <div class="principle-num">Principio 07</div>
+        <h3>Un framework transdiagnostico genera hipotesis desde datos no-psiquiatricos</h3>
+        <p>La hipotesis de que desvenlafaxina seria efectiva para GAD se genero a partir de un estudio en mujeres con sintomas vasomotores sin diagnostico DSM. Un marco dimensional permite transferir evidencia entre poblaciones que el DSM mantiene segregadas.</p>
+        <p><strong>Evidencia:</strong> Desvenlafaxina redujo POMS:Tension (proxy de PT) con SMD 0.22-0.26 vs placebo en muestra con VMS y sin diagnostico psiquiatrico (Cheng 2013). No existen estudios directos de desvenlafaxina en GAD.</p>
+        <p class="transferencia">Transferibilidad: Datos de poblaciones "no psiquiatricas" pueden generar hipotesis farmacologicas validas para condiciones psiquiatricas si se comparte el constructo dimensional subyacente.</p>
+      </div>
+
+      <div class="principle-card">
+        <div class="principle-num">Principio 08</div>
+        <h3>El sesgo metodologico es endemico, no excepcional</h3>
+        <p>100% de los estudios de esta revision tienen alto riesgo de sesgo. Pero esto no es anomalo: en el meta-analisis de referencia de MDD (Cipriani 2018, Lancet), solo 18% fue low risk. El sesgo es la norma en psicofarmacologia &mdash; la solucion no es ignorar la evidencia sino leerla con calibracion epistemologica adecuada.</p>
+        <p><strong>Evidencia:</strong> 100% alto riesgo en esta revision. 82% moderate/high en Cipriani 2018 (522 trials). 84% alto en Slee 2019 (89 trials de GAD). 60% alto en Helfer 2016 (82 trials). 100% alto en Christiansen 2017 (6 trials).</p>
+        <p class="transferencia">Transferibilidad: No rechazar evidencia por sesgo alto si es la unica que existe. Leerla con los lentes adecuados y pesar las conclusiones proporcionalmente.</p>
+      </div>
+
+      <div class="principle-card">
+        <div class="principle-num">Principio 09</div>
+        <h3>La reificacion de constructos es un riesgo para cualquier sistema clasificatorio</h3>
+        <p>El mismo fenomeno que osifico las categorias DSM-III puede ocurrir con los constructos RDoC. El workgroup original advirtio que la lista no era "definitiva ni inclusiva". Kozak y Cuthbert citaron a Spitzer: cada clasificacion es "solo un fotograma" en un proceso continuo.</p>
+        <p><strong>Evidencia:</strong> El constructo "Distress" fue dividido en PT, ST, y Loss en un workshop. La decision fue pragmatica, no basada en evidencia neurobiologica definitiva. La evidencia posterior sugiere que al menos PT y Loss podrian no ser distinguibles.</p>
+        <p class="transferencia">Transferibilidad: Cualquier sistema clasificatorio (DSM, RDoC, HiTOP, ICD) es un modelo, no la realidad. Usarlos como herramientas, no como ontologias.</p>
+      </div>
+
+      <div class="principle-card">
+        <div class="principle-num">Principio 10</div>
+        <h3>El auto-reporte tiene un techo: deseabilidad social y sesgo de respuesta</h3>
+        <p>Los scores POMS "normales" en pacientes con diagnosticos clinicos puede reflejar underreporting motivado por deseabilidad social, no ausencia de patologia. RDoC deberia expandir "self-report" para incluir elementos observacionales.</p>
+        <p><strong>Evidencia:</strong> Todas las muestras excepto la hospitalaria (Ozdemir 2015) tuvieron baselines dentro del rango normal poblacional. POMS no reporto timeframe en ninguno de los estudios, dificultando la interpretacion.</p>
+        <p class="transferencia">Transferibilidad: En investigacion y en clinica, los cuestionarios de auto-reporte son necesarios pero no suficientes. La triangulacion con observacion clinica y medidas fisiologicas fortalece la validez.</p>
+      </div>
+
+      <div class="principle-card">
+        <div class="principle-num">Principio 11</div>
+        <h3>La dimensionalidad funciona en ambas direcciones: patologia y normalidad</h3>
+        <p>La efectividad de antidepresivos en scores "normales" sugiere un continuo funcional de regulacion emocional que atraviesa la frontera normalidad-patologia. Esto es consistente con evidencia de que antidepresivos reducen la vigilancia atencional a amenazas en voluntarios sanos.</p>
+        <p><strong>Evidencia:</strong> Antidepresivos efectivos en muestras con FQ:Agoraphobia dentro del rango normal. Murphy et al. (2009): ISRS reducen vigilancia a amenaza en voluntarios sanos. de Vries et al. (2018): antidepresivos efectivos en todos los niveles de severidad de trastornos de ansiedad.</p>
+        <p class="transferencia">Transferibilidad: Abre la pregunta sobre antidepresivos como "nootropicos emocionales" y sobre la existencia de un continuo de regulacion afectiva que no requiere diagnostico para ser modulado.</p>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ======== 7. APLICACIONES ======== -->
+    <section class="section fade-in" id="aplicaciones">
+      <h2>Aplicaciones</h2>
+
+      <div class="application-card">
+        <div class="app-number">01</div>
+        <div class="app-content">
+          <p><strong>Al elegir outcome measures para un trial, audita validez discriminante</strong></p>
+          <p>Antes de seleccionar una escala, verificar en Watson et al. (2017) si la escala discrimina el constructo que pretende medir o si mide distress general. En diseno de protocolos, justificar la eleccion de escala con base en validez de constructo, no solo en popularidad o tradicion.</p>
+          <p class="caveat">Watson et al. solo evaluaron instrumentos para NVS; otros dominios RDoC no tienen esta referencia aun.</p>
+        </div>
+      </div>
+
+      <div class="application-card">
+        <div class="app-number">02</div>
+        <div class="app-content">
+          <p><strong>Al interpretar "efectividad", pregunta: efectivo en que constructo?</strong></p>
+          <p>Cuando un estudio dice que un farmaco es "efectivo para fobia social", verificar que escala uso. Si uso STAI, mide distress general; si uso FQ, mide miedo/evitacion especifica. Esto aplica en journal club, formulario terapeutico, y al evaluar evidencia para pacientes individuales.</p>
+          <p class="caveat">Esto no invalida la efectividad reportada &mdash; la contextualiza. Un farmaco puede ser efectivo para distress sin ser efectivo para miedo.</p>
+        </div>
+      </div>
+
+      <div class="application-card">
+        <div class="app-number">03</div>
+        <div class="app-content">
+          <p><strong>Hipotesis: desvenlafaxina para GAD, basada en datos transdiagnosticos</strong></p>
+          <p>La hipotesis de que desvenlafaxina es efectiva para PT (constructo mas cercano a GAD) se basa en SMD debil (0.22-0.26) en muestra no psiquiatrica. Podria justificar un RCT especifico.</p>
+          <p class="caveat">No hay estudios directos de desvenlafaxina en GAD. Esto es hipotesis generada por el framework, no evidencia para cambio de prescripcion.</p>
+        </div>
+      </div>
+
+      <div class="application-card">
+        <div class="app-number">04</div>
+        <div class="app-content">
+          <p><strong>No asumir que ISRS/IRSN predice perfiles de efectividad diferencial</strong></p>
+          <p>Ensenar afinidades de receptor como espectro continuo, no como categorias discretas. Sertralina tiene mayor accion noradrenergica que venlafaxina. Usar tablas de afinidad en la ensenanza de psicofarmacologia en vez de clasificaciones binarias.</p>
+          <p class="caveat">La clinica del paciente individual sigue siendo el gold standard. La farmacologia de afinidad es un mapa, no el territorio.</p>
+        </div>
+      </div>
+
+      <div class="application-card">
+        <div class="app-number">05</div>
+        <div class="app-content">
+          <p><strong>En linea de investigacion RDoC-PHQ9: evaluar si los items del PHQ-9 discriminan constructos NVS</strong></p>
+          <p>Usar el framework de Watson et al. para evaluar si los factores del PHQ-9 que emerjan del analisis factorial discriminan constructos NVS o miden distress general. Relevante para papers ENDES con mapeo dimensional.</p>
+          <p class="caveat">PHQ-9 no fue disenado con RDoC en mente. El mapeo sera imperfecto pero potencialmente informativo para la linea de investigacion.</p>
+        </div>
+      </div>
+
+      <div class="application-card">
+        <div class="app-number">06</div>
+        <div class="app-content">
+          <p><strong>Para ensenanza: el caso nefazodona como ejemplo de como la escala cambia la conclusion</strong></p>
+          <p>Presentar lado a lado: nefazodona "efectiva" (STAI) vs "inefectiva" (FQ) para fobia social. Pregunta para alumnos: cual es la conclusion correcta? Util para clases de psicofarmacologia o metodologia de investigacion.</p>
+          <p class="caveat">El ejemplo es didactico. La inefectividad de nefazodona fue confirmada en un RCT posterior mas riguroso (Van Ameringen, Mancini 1996).</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ======== 8. LIMITACIONES + GAPS ======== -->
+    <section class="section fade-in" id="limitaciones">
+      <h2>Limitaciones + Gaps</h2>
+
+      <div class="limitation-item">
+        <span class="badge badge-red">Calidad</span>
+        <span><strong>100% de estudios con alto riesgo de sesgo.</strong> Sesgos mas frecuentes: falta de cegamiento, no evaluacion de adherencia, y reporte selectivo. Todas las conclusiones son preliminares.</span>
+      </div>
+      <div class="limitation-item">
+        <span class="badge badge-red">Medicion</span>
+        <span><strong>Solo 3 de 7 instrumentos encontrados.</strong> No se pudieron evaluar Sustained Threat ni Frustrative Nonreward por falta de instrumentos validados en la literatura.</span>
+      </div>
+      <div class="limitation-item">
+        <span class="badge badge-red">Muestra</span>
+        <span><strong>Muestras muy pequenas en varios estudios.</strong> Wood et al. n=8; Alamy et al. n=11. Poder estadistico insuficiente para detectar diferencias reales.</span>
+      </div>
+      <div class="limitation-item">
+        <span class="badge badge-red">Diseno</span>
+        <span><strong>Autor unico en todas las fases.</strong> Sin doble revision independiente para screening, extraccion, y analisis de sesgo &mdash; estandar minimo en revisiones sistematicas.</span>
+      </div>
+      <div class="limitation-item">
+        <span class="badge badge-red">Diseno</span>
+        <span><strong>Protocolo no registrado prospectivamente.</strong> No permite verificar cambios post-hoc en criterios de inclusion o analisis.</span>
+      </div>
+
+      <details>
+        <summary>Ver analisis completo de limitaciones</summary>
+        <div class="details-content">
+          <h3>Amenazas a la validez interna</h3>
+          <p>La falta de cegamiento en Perna (2001) y Alamy (2008) expone el self-report a sesgo de expectativa. La no-evaluacion de adherencia en la mayoria de estudios impide saber si la dosis terapeutica fue realmente administrada. En Cheng (2013), los numeros finales analizados son menores que los que completaron el estudio sin explicacion.</p>
+
+          <h3>Amenazas a la validez externa</h3>
+          <p>La exclusion liberal de comorbilidades en algunos estudios (Lydiard 1997) vs la inclusion liberal en otros (Van Ameringen 1999) hace que la comparacion entre estudios sea problematica. Las muestras son predominantemente de paises anglosajonos &mdash; la aplicabilidad cross-cultural del paradigma RDoC no esta demostrada.</p>
+
+          <h3>Amenazas a la validez de constructo</h3>
+          <p>La pregunta central: POMS:Tension realmente mide Potential Threat como lo define RDoC? POMS:Depression mide Loss? Watson et al. (2017) propusieron estas correspondencias basandose en analisis de validez convergente/discriminante, pero la evidencia no es definitiva. La confusion entre estos constructos es precisamente uno de los hallazgos de esta revision.</p>
+
+          <h3>Gaps</h3>
+          <p>No hay estudios con PANAS-X, NEO-PI-3, TAI, ni FI-FFM. Sustained Threat y Frustrative Nonreward no tienen instrumentos propuestos. Los otros 4 dominios RDoC (Positive Valence, Cognitive, Arousal, Sensorimotor) no fueron evaluados. No se incluyeron antidepresivos de ultima generacion (esketamina, brexanolona, zuranolona).</p>
+        </div>
+      </details>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ======== 9. ROUTE TO APPLICABILITY ======== -->
+    <section class="section fade-in" id="route">
+      <h2>Route to Applicability</h2>
+
+      <h3 style="color: #2EC4B6; margin-bottom: 1rem;">Que falta para aplicar</h3>
+
+      <div class="route-card">
+        <div class="route-icon">&rarr;</div>
+        <div class="route-content">
+          <p><strong>Nuevas psicometrias disenadas para constructos RDoC NVS</strong> con validez discriminante demostrada entre AT, PT, y Loss (o entre AT y Distress, si se colapsan PT+Loss). Los instrumentos actuales fueron creados pre-RDoC.</p>
+        </div>
+      </div>
+
+      <div class="route-card">
+        <div class="route-icon">&rarr;</div>
+        <div class="route-content">
+          <p><strong>Trials con constructos RDoC como outcome primario.</strong> Los 13 estudios encontrados usaron estas escalas como outcomes secundarios. Un trial donde POMS:Tension o FQ:Agoraphobia sea el outcome primario cambiaria radicalmente el poder de la evidencia.</p>
+        </div>
+      </div>
+
+      <div class="route-card">
+        <div class="route-icon">&rarr;</div>
+        <div class="route-content">
+          <p><strong>RCT de desvenlafaxina en GAD con POMS:Tension como outcome.</strong> Confirmaria/refutaria la utilidad transdiagnostica del framework y la hipotesis generada por esta revision.</p>
+        </div>
+      </div>
+
+      <div class="route-card">
+        <div class="route-icon">&rarr;</div>
+        <div class="route-content">
+          <p><strong>Expansion a otros dominios RDoC.</strong> Esta revision solo cubre NVS. La utilidad clinica de RDoC requiere evidencia en Positive Valence, Cognitive, Arousal, y Sensorimotor Systems.</p>
+        </div>
+      </div>
+
+      <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Investigacion necesaria</h3>
+
+      <div class="route-card">
+        <div class="route-icon">?</div>
+        <div class="route-content">
+          <p><strong>Validar si POMS:Tension y POMS:Depression realmente discriminan PT vs Loss</strong> o si miden el mismo constructo latente (Distress). Requiere estudios de validez discriminante con muestras grandes y multimodales (self-report + fisiologico + neuroimagen).</p>
+        </div>
+      </div>
+
+      <div class="route-card">
+        <div class="route-icon">?</div>
+        <div class="route-content">
+          <p><strong>Integrar startle response como unidad de analisis biologica</strong> para validar la distincion AT vs Distress. La evidencia existente (Vaidyanathan 2009) sugiere que es mas confiable que el self-report para diferenciar "fear" de "distress".</p>
+        </div>
+      </div>
+
+      <div class="route-card">
+        <div class="route-icon">?</div>
+        <div class="route-content">
+          <p><strong>Investigar si los antidepresivos modulan regulacion emocional en poblacion sin diagnostico</strong> (la hipotesis del "nootropico emocional"). Si los antidepresivos son efectivos en rangos normales, la frontera normalidad-patologia se desdibuja.</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ======== CITAS TEXTUALES ======== -->
+    <section class="section fade-in" id="citas">
+      <h2>Citas textuales del paper</h2>
+
+      <blockquote>
+        <p>Discriminant validity is a pervasive issue with psychometric instruments for anxiety and depression, with psychometric instruments &mdash; such as the STAI &mdash; often measuring general distress/negative affectivity as opposed to more specific constructs of anxiety, fear or depression.</p>
+        <cite>&mdash; Discussion, p.15</cite>
+      </blockquote>
+
+      <blockquote>
+        <p>The initial NIMH workgroup responsible for creating RDoC initially proposed that the NVS comprise of &lsquo;distress&rsquo;, &lsquo;fear&rsquo;, and &lsquo;anger&rsquo; constructs. However, an expert workshop convened to discuss these proposals instead decided to split the &lsquo;distress&rsquo; construct into response to &lsquo;PT&rsquo;, &lsquo;ST&rsquo; and &lsquo;loss&rsquo; because the former was found to be too &lsquo;vague and diffuse&rsquo;.</p>
+        <cite>&mdash; Discussion, p.17</cite>
+      </blockquote>
+
+      <blockquote>
+        <p>These findings are consistent with the dimensional conceptualisation of psycho-behavioural constructs spanning normality to pathology. Further study could shed light on whether antidepressants have the potential to be used as emotional nootropic agents.</p>
+        <cite>&mdash; Discussion, p.18</cite>
+      </blockquote>
+
+      <blockquote>
+        <p>A similar sentiment was cited by Kozak and Cuthbert to warn against the reification of RDoC constructs that had befallen DSM-III diagnostic categories.</p>
+        <cite>&mdash; Discussion, p.17</cite>
+      </blockquote>
+
+      <blockquote>
+        <p>The inability to isolate specific biological markers of psychopathology has led to a persistent reliance on psychometric measures that has, with few exceptions, struggled to clearly differentiate amongst individual agent or class in terms of effectiveness amongst various disorders for which they are the first-line psychopharmacologic intervention.</p>
+        <cite>&mdash; Introduction, p.2</cite>
+      </blockquote>
+
+      <blockquote>
+        <p>Sertraline is a more potent inhibitor of noradrenaline transporter than both venlafaxine and desvenlafaxine, and only has slightly lower affinity than duloxetine, not to mention its higher absolute affinity for the dopamine transporter.</p>
+        <cite>&mdash; Discussion, p.15</cite>
+      </blockquote>
+
+      <blockquote>
+        <p>The fact that a testable hypothesis for the effectiveness of an antidepressant for a particular disorder was able to be generated from this review, based on the results of a study investigating a sample with purely vasomotor symptoms and no DSM diagnoses, suggest the potential utility from both research and clinical perspectives of transdiagnostic constructs.</p>
+        <cite>&mdash; Discussion, p.15</cite>
+      </blockquote>
+
+      <blockquote>
+        <p>It is still not possible to differentiate between GAD from MDD based on a review of a multimodal neuroimaging evidence to date although the same study found a correlation between limbic/paralimbic activity and the combined sample including healthy controls based on levels of general distress.</p>
+        <cite>&mdash; Discussion, p.17</cite>
+      </blockquote>
+
+      <blockquote>
+        <p>The workgroup acknowledged the list of Constructs created was &lsquo;not intended to be definitive or all-inclusive&rsquo;.</p>
+        <cite>&mdash; Discussion, p.17</cite>
+      </blockquote>
+
+      <blockquote>
+        <p>Underreporting of mood had been described in the literature due to response bias motivated by perceived social desirability. Thus, for RDoC research to be clinically useful, considering expanding the &lsquo;self-report&rsquo; unit of analysis to include observer-rated elements of such self-report is warranted.</p>
+        <cite>&mdash; Discussion, p.18</cite>
+      </blockquote>
+
+      <blockquote>
+        <p>With the exception of the only study performed in an inpatient population, all the other studies identified by this systematic review reported mean baseline values of their subjects that were within the &lsquo;normal&rsquo; range.</p>
+        <cite>&mdash; Discussion, p.18</cite>
+      </blockquote>
+
+      <blockquote>
+        <p>Psychometrics that are sensitive to the phenomenological manifestations of a new paradigm of pathophysiology with clearer biological underpinnings should allow for clearer descriptions of the clinical effectiveness of antidepressants.</p>
+        <cite>&mdash; Introduction, p.2</cite>
+      </blockquote>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ======== 10. LECTURAS SIGUIENTE ======== -->
+    <section class="section fade-in" id="lecturas">
+      <details>
+        <summary>Lecturas recomendadas (5 referencias)</summary>
+        <div class="details-content">
+          <div class="reading-item">
+            <div class="reading-cite">Watson D, Stanton K, Clark LA. Self-report indicators of negative valence constructs within the RDoC: A critical review. J Affect Disord. 2017;216:58-69.</div>
+            <div class="reading-why">La referencia fundacional: define que escalas mapean a que constructos NVS y por que la mayoria de instrumentos actuales carecen de validez discriminante.</div>
+          </div>
+          <div class="reading-item">
+            <div class="reading-cite">Cipriani A, Furukawa TA, Salanti G, et al. Comparative efficacy and acceptability of 21 antidepressant drugs for MDD. Lancet. 2018;391:1357-66.</div>
+            <div class="reading-why">El gold standard de comparacion de antidepresivos bajo paradigma DSM. Complemento necesario para entender que agrega (y que no) el lente RDoC.</div>
+          </div>
+          <div class="reading-item">
+            <div class="reading-cite">Waszczuk MA, Kotov R, Ruggero C, et al. Hierarchical structure of emotional disorders: From individual symptoms to the spectrum. J Abnorm Psychol. 2017;126(5):613-34.</div>
+            <div class="reading-why">Evidencia factorial de que la estructura internalizing es "fear + distress", no "anxiety + depression". Soporte empirico para el Principio 03.</div>
+          </div>
+          <div class="reading-item">
+            <div class="reading-cite">Kozak MJ, Cuthbert BN. The NIMH RDoC Initiative: Background, Issues, and Pragmatics. Psychophysiology. 2016;53(3):286-97.</div>
+            <div class="reading-why">La advertencia oficial contra la reificacion de constructos RDoC. Lectura esencial para usar RDoC como herramienta y no como dogma.</div>
+          </div>
+          <div class="reading-item">
+            <div class="reading-cite">Vaidyanathan U, Patrick CJ, Cuthbert BN. Linking dimensional models of internalizing psychopathology to neurobiological systems. Psychol Bull. 2009;135(6):909-42.</div>
+            <div class="reading-why">Startle response como diferenciador biologico de fear vs distress. La mejor evidencia de que AT es neurobiologicamente distinto de PT/Loss.</div>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- ======== FOOTER ======== -->
+    <footer style="text-align: center; padding: 2rem 0; color: #9B9FA4; font-size: 0.8rem;">
+      <p>Paper Digest &mdash; JAFLO Lab &middot; 2026-05-23</p>
+      <p style="margin-bottom: 0;">Generado con el pipeline paper-digestor v0.2.0</p>
+    </footer>
+
+  </div>
+
+  <!-- ======== FADE-IN SCRIPT ======== -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
