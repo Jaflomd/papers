@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arousal shapes motivation — Digest · Thurn et al. 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Roboto+Slab:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* ============ RESET & BASE ============ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #F7F5F2;
+      color: #6C7278;
+      font-size: 1rem;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ============ SCROLL PROGRESS ============ */
+    .scroll-progress {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, #2EC4B6, #E63946);
+      z-index: 200;
+      transition: width 0.05s linear;
+    }
+
+    /* ============ CONTAINER ============ */
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 5rem;
+    }
+
+    /* ============ NAV STICKY (glassmorphism) ============ */
+    .nav-sticky {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(247, 245, 242, 0.85);
+      backdrop-filter: blur(14px) saturate(1.4);
+      -webkit-backdrop-filter: blur(14px) saturate(1.4);
+      border-bottom: 1px solid #E3E0DB;
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      gap: 1.25rem;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .nav-sticky::-webkit-scrollbar { display: none; }
+    .nav-sticky a {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #9B9FA4;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: color 0.2s;
+      padding: 0.25rem 0;
+    }
+    .nav-sticky a:hover { color: #E63946; }
+
+    /* ============ TYPOGRAPHY ============ */
+    h1 {
+      font-family: 'Lora', serif;
+      font-weight: 700;
+      font-size: 2rem;
+      line-height: 1.3;
+      color: #1A1C1E;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.75rem;
+    }
+    h2 {
+      font-family: 'Lora', serif;
+      font-weight: 600;
+      font-size: 1.4rem;
+      line-height: 1.35;
+      color: #1A1C1E;
+      margin-bottom: 1rem;
+    }
+    h3 {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #1A1C1E;
+      margin-bottom: 0.5rem;
+    }
+    p { margin-bottom: 1rem; }
+    strong { color: #1A1C1E; font-weight: 700; }
+    em { font-style: italic; }
+    .lead { font-size: 1.05rem; color: #4A4E52; }
+    .section-kicker {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #2EC4B6;
+      margin-bottom: 0.35rem;
+    }
+
+    /* ============ SECTIONS ============ */
+    .section {
+      margin-bottom: 3rem;
+      scroll-margin-top: 4.5rem;
+    }
+    .section-divider {
+      border: none;
+      border-top: 1px solid #E3E0DB;
+      margin: 3rem 0;
+    }
+
+    /* ============ FADE-IN ON SCROLL ============ */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============ BADGES ============ */
+    .badge {
+      display: inline-block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+    }
+    .badge-teal { background: rgba(46,196,182,0.12); color: #2EC4B6; }
+    .badge-red { background: rgba(230,57,70,0.1); color: #E63946; }
+    .badge-gray { background: #F0EDEA; color: #6C7278; }
+
+    /* ============ QUICK CHECK ============ */
+    .quick-check {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 0.75rem;
+      margin: 1.25rem 0;
+    }
+    .qc-item {
+      background: #FFFFFF;
+      border: 1px solid #E3E0DB;
+      border-radius: 8px;
+      padding: 1rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .qc-item:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(26,28,30,0.06); }
+    .qc-item .qc-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #9B9FA4;
+      margin-bottom: 0.35rem;
+    }
+    .qc-item .qc-value {
+      font-family: 'Lora', serif;
+      font-weight: 600;
+      font-size: 0.98rem;
+      color: #1A1C1E;
+      line-height: 1.4;
+    }
+
+    /* ============ IDEA CARDS (paper teórico — sustituye stat cards) ============ */
+    .ideas-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    .idea-card {
+      background: #FFFFFF;
+      border: 1px solid #E3E0DB;
+      border-radius: 8px;
+      padding: 1.4rem 1.5rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .idea-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(26,28,30,0.07); }
+    .idea-card .idea-num {
+      font-family: 'Roboto Slab', serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: #2EC4B6;
+      margin-right: 0.5rem;
+    }
+    .idea-card .idea-head {
+      font-family: 'Lora', serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #1A1C1E;
+      line-height: 1.4;
+      margin-bottom: 0.5rem;
+    }
+    .idea-card .idea-detail {
+      font-size: 0.95rem;
+      color: #6C7278;
+      line-height: 1.7;
+    }
+
+    /* ============ PUSH/PULL HIGHLIGHT ============ */
+    .pushpull {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 0.75rem;
+      align-items: center;
+      margin: 1.5rem 0;
+    }
+    .pushpull .pp-card {
+      background: #FFFFFF;
+      border: 1px solid #E3E0DB;
+      border-radius: 10px;
+      padding: 1.1rem 1.25rem;
+      text-align: center;
+    }
+    .pushpull .pp-card.push { border-top: 3px solid #2EC4B6; }
+    .pushpull .pp-card.pull { border-top: 3px solid #E63946; }
+    .pushpull .pp-tag {
+      font-family: 'Roboto Slab', serif;
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: #1A1C1E;
+    }
+    .pushpull .pp-card.push .pp-tag { color: #2EC4B6; }
+    .pushpull .pp-card.pull .pp-tag { color: #E63946; }
+    .pushpull .pp-sub {
+      font-size: 0.82rem;
+      color: #6C7278;
+      margin-top: 0.35rem;
+      line-height: 1.45;
+    }
+    .pushpull .pp-mid {
+      font-family: 'Lora', serif;
+      font-style: italic;
+      color: #9B9FA4;
+      font-size: 0.85rem;
+    }
+
+    /* ============ BLOCKQUOTE ============ */
+    blockquote {
+      border-left: 3px solid #E63946;
+      margin: 1.5rem 0;
+      padding: 1rem 1.25rem;
+      background: rgba(230, 57, 70, 0.04);
+      border-radius: 0 6px 6px 0;
+    }
+    blockquote p {
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-size: 1.02rem;
+      line-height: 1.6;
+      color: #1A1C1E;
+      margin: 0;
+    }
+    blockquote cite {
+      display: block;
+      font-family: 'DM Sans', sans-serif;
+      font-style: normal;
+      font-size: 0.78rem;
+      color: #9B9FA4;
+      margin-top: 0.5rem;
+    }
+
+    /* ============ DETAILS / SUMMARY ============ */
+    details {
+      margin: 1rem 0;
+      border: 1px solid #E3E0DB;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #FFFFFF;
+    }
+    details summary {
+      padding: 1rem 1.25rem;
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: #1A1C1E;
+      cursor: pointer;
+      background: #F0EDEA;
+      transition: background 0.2s;
+      list-style: none;
+    }
+    details summary::-webkit-details-marker { display: none; }
+    details summary::before { content: '▸ '; color: #9B9FA4; }
+    details[open] summary::before { content: '▾ '; }
+    details summary:hover { background: #E8E5E0; }
+    details .details-content { padding: 1.25rem; background: #FFFFFF; }
+    details .details-content p:last-child { margin-bottom: 0; }
+    details .details-content h3 { margin-top: 1.25rem; }
+    details .details-content h3:first-child { margin-top: 0; }
+
+    /* ============ PRINCIPLE CARDS ============ */
+    .principle-card {
+      background: #FFFFFF;
+      border: 1px solid #E3E0DB;
+      border-left: 4px solid #2EC4B6;
+      border-radius: 0 8px 8px 0;
+      padding: 1.3rem 1.5rem;
+      margin-bottom: 1.25rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .principle-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(46,196,182,0.10); }
+    .principle-card .p-num {
+      font-family: 'Roboto Slab', serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: #2EC4B6;
+      letter-spacing: 0.05em;
+    }
+    .principle-card h3 { margin-bottom: 0.5rem; margin-top: 0.15rem; }
+    .principle-card .p-body { font-size: 0.96rem; color: #4A4E52; line-height: 1.7; }
+    .principle-card .triple {
+      margin-top: 0.9rem;
+      padding-top: 0.85rem;
+      border-top: 1px solid #E3E0DB;
+      display: grid;
+      gap: 0.45rem;
+    }
+    .principle-card .triple .tline {
+      font-size: 0.85rem;
+      line-height: 1.55;
+      color: #6C7278;
+    }
+    .principle-card .triple .tkey {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: #2EC4B6;
+      margin-right: 0.4rem;
+    }
+    .principle-card .triple .tkey.falsif { color: #E63946; }
+
+    /* ============ APPLICATION CARDS ============ */
+    .application-card {
+      background: #FFFFFF;
+      border: 1px solid #E3E0DB;
+      border-radius: 8px;
+      padding: 1.3rem 1.5rem;
+      margin-bottom: 1rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .application-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(26,28,30,0.07); }
+    .application-card .app-number {
+      font-family: 'Roboto Slab', serif;
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: #2EC4B6;
+      min-width: 2rem;
+      line-height: 1.4;
+    }
+    .application-card .app-content { flex: 1; }
+    .application-card .app-content p { margin-bottom: 0.5rem; }
+    .application-card .app-action { font-size: 0.95rem; color: #4A4E52; line-height: 1.7; }
+    .application-card .caveat {
+      font-size: 0.85rem;
+      color: #9B9FA4;
+      margin-top: 0.65rem;
+      padding-left: 0.75rem;
+      border-left: 2px solid #E63946;
+      line-height: 1.55;
+    }
+
+    /* ============ LIMITATION ITEMS ============ */
+    .limitation-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 0.85rem;
+      background: #FFFFFF;
+      border: 1px solid #E3E0DB;
+      border-radius: 8px;
+      padding: 1rem 1.15rem;
+    }
+    .limitation-item .badge { flex-shrink: 0; margin-top: 0.15rem; }
+    .limitation-item span:last-child { font-size: 0.92rem; color: #4A4E52; line-height: 1.6; }
+
+    /* ============ GLOSSARY ============ */
+    .glossary dl { margin: 0; }
+    .glossary dt {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      color: #1A1C1E;
+      font-size: 0.95rem;
+      margin-top: 1.1rem;
+    }
+    .glossary dt:first-child { margin-top: 0; }
+    .glossary dd {
+      font-size: 0.9rem;
+      color: #6C7278;
+      margin-left: 0;
+      margin-top: 0.25rem;
+      line-height: 1.65;
+    }
+
+    /* ============ ROUTE CARDS ============ */
+    .route-grid { display: grid; gap: 0.8rem; margin-top: 1rem; }
+    .route-item {
+      background: #FFFFFF;
+      border: 1px solid #E3E0DB;
+      border-radius: 8px;
+      padding: 1rem 1.2rem;
+      display: flex;
+      gap: 0.8rem;
+      align-items: flex-start;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .route-item:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(26,28,30,0.06); }
+    .route-item .r-icon {
+      font-family: 'Roboto Slab', serif;
+      color: #2EC4B6;
+      font-size: 1.1rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .route-item .r-text { font-size: 0.92rem; color: #4A4E52; line-height: 1.6; }
+    .route-callout {
+      margin-top: 1.25rem;
+      background: rgba(230,57,70,0.05);
+      border: 1px solid rgba(230,57,70,0.2);
+      border-radius: 8px;
+      padding: 1.1rem 1.3rem;
+      font-size: 0.93rem;
+      color: #4A4E52;
+      line-height: 1.65;
+    }
+
+    /* ============ READING LIST ============ */
+    .reading-item {
+      padding: 0.9rem 0;
+      border-bottom: 1px solid #E3E0DB;
+    }
+    .reading-item:last-child { border-bottom: none; }
+    .reading-item .reading-cite {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      color: #1A1C1E;
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+    .reading-item .reading-why {
+      font-size: 0.84rem;
+      color: #9B9FA4;
+      margin-top: 0.25rem;
+    }
+
+    /* ============ STATUS CALLOUT ============ */
+    .status-callout {
+      background: linear-gradient(180deg, rgba(46,196,182,0.06), rgba(247,245,242,0));
+      border: 1px solid #E3E0DB;
+      border-left: 4px solid #2EC4B6;
+      border-radius: 0 10px 10px 0;
+      padding: 1.2rem 1.4rem;
+      margin: 1.5rem 0;
+      font-size: 0.93rem;
+      color: #4A4E52;
+      line-height: 1.65;
+    }
+    .status-callout strong { color: #1A1C1E; }
+
+    /* ============ FOOTER ============ */
+    .digest-footer {
+      margin-top: 3.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #E3E0DB;
+      font-size: 0.78rem;
+      color: #9B9FA4;
+      line-height: 1.6;
+    }
+
+    /* ============ RESPONSIVE ============ */
+    @media (max-width: 600px) {
+      .container { padding: 1rem 1rem 3rem; }
+      .nav-sticky { font-size: 0.75rem; gap: 1rem; padding: 0.6rem 1rem; }
+      h1 { font-size: 1.5rem; }
+      h2 { font-size: 1.2rem; }
+      .quick-check { grid-template-columns: repeat(2, 1fr); }
+      .application-card { flex-direction: column; gap: 0.5rem; }
+      .pushpull { grid-template-columns: 1fr; }
+      .pushpull .pp-mid { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ======== NAV STICKY ======== -->
+  <nav class="nav-sticky">
+    <a href="#quick-check">Quick Check</a>
+    <a href="#metodos">Métodos</a>
+    <a href="#ideas">Ideas clave</a>
+    <a href="#principios">Principios</a>
+    <a href="#aplicaciones">Aplicaciones</a>
+    <a href="#limitaciones">Limitaciones</a>
+    <a href="#route">Route to applicability</a>
+    <a href="#citas">En palabras del paper</a>
+  </nav>
+
+  <div class="container">
+
+    <!-- ======== HEADER ======== -->
+    <header style="margin-bottom: 2rem; margin-top: 1rem;">
+      <div style="margin-bottom: 0.75rem;">
+        <span class="badge badge-teal">Framework teórico</span>
+        <span class="badge badge-gray">Transdiagnóstico · RDoC</span>
+        <span class="badge badge-red">Article in Press</span>
+      </div>
+      <h1>Arousal shapes motivation: un marco integrativo para entender los déficits motivacionales</h1>
+      <p style="color: #9B9FA4; font-size: 0.9rem; margin-bottom: 0;">
+        Lilly Thurn, Adam J. Culbreth, Dennis Hernaus · <em>Translational Psychiatry</em> (2026) · DOI: 10.1038/s41398-026-04113-3
+      </p>
+      <p class="lead" style="margin-top: 1.1rem;">
+        Tesis: el arousal —en particular el sistema <strong>locus coeruleus-noradrenalina (LC-NA)</strong>— no computa el valor de una meta;
+        <strong>lo calibra</strong>. Fija el <em>marco de referencia</em> sobre el que la dopamina ejecuta las computaciones de decisión,
+        invigoración y aprendizaje. Reposiciona el déficit motivacional de "no valora la meta" a "no está fisiológicamente disponible para perseguirla".
+      </p>
+    </header>
+
+    <!-- ======== 1. QUICK CHECK ======== -->
+    <section class="section fade-in" id="quick-check">
+      <div class="section-kicker">Escaneo en 5 segundos</div>
+      <h2>Quick Check</h2>
+      <div class="quick-check">
+        <div class="qc-item">
+          <div class="qc-label">Tipo</div>
+          <div class="qc-value">Narrative review · framework integrativo</div>
+        </div>
+        <div class="qc-item">
+          <div class="qc-label">Journal · Año</div>
+          <div class="qc-value">Translational Psychiatry · 2026</div>
+        </div>
+        <div class="qc-item">
+          <div class="qc-label">Población</div>
+          <div class="qc-value">Sanos (animal + humano) y clínicos: MDD y esquizofrenia</div>
+        </div>
+        <div class="qc-item">
+          <div class="qc-label">Marco</div>
+          <div class="qc-value">Transdiagnóstico (RDoC)</div>
+        </div>
+        <div class="qc-item">
+          <div class="qc-label">Nivel de evidencia</div>
+          <div class="qc-value">Conceptual · no causal en humanos</div>
+        </div>
+        <div class="qc-item">
+          <div class="qc-label">Sistema diana</div>
+          <div class="qc-value">Locus coeruleus–noradrenalina (LC-NA)</div>
+        </div>
+      </div>
+      <div class="status-callout">
+        <strong>Estatus epistémico.</strong> Los autores lo presentan explícitamente como una <em>initial proposal</em>:
+        un puente conceptual generador de hipótesis, no un modelo validado ni una guía de intervención.
+        El propio paper declara que la evidencia causal en humanos, a nivel de subcomponente, está ausente.
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ======== 2. CÓMO LEER ESTO ======== -->
+    <section class="section fade-in" id="como-leer">
+      <details>
+        <summary>📖 Cómo leer este paper</summary>
+        <div class="details-content">
+          <p>Los déficits motivacionales son rasgo central y discapacitante de la depresión mayor (MDD) y la esquizofrenia:
+          aparecen en fase prodrómica, persisten en cronicidad y quedan como síntoma residual resistente a tratamiento.</p>
+          <p>El campo los ha explicado sobre todo por disfunción dopaminérgica del sistema de recompensa ("representación de valor deficiente"),
+          pero los avances terapéuticos siguen limitados —señal de que ese modelo está incompleto. El paper propone que el factor poco apreciado
+          es la disfunción en la <strong>modulación dinámica del arousal</strong>, que recalibra las computaciones motivacionales downstream.</p>
+          <p><strong>Encontrarás:</strong> el mecanismo basal del arousal en sanos (animal + humano), la firma de arousal disfuncional en MDD/SZ,
+          12 principios transferibles, 6 aplicaciones con caveat, la ruta de medición/manipulación que faltaría, y las citas literales que anclan cada decisión editorial.
+          <strong>Para quién:</strong> investigador de neurociencia computacional, psiquiatría de precisión y desarrollo de intervenciones.</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- ======== 3. MINI GLOSARIO ======== -->
+    <section class="section fade-in" id="glosario">
+      <details>
+        <summary>📚 Glosario: 8 términos clave</summary>
+        <div class="details-content glossary">
+          <dl>
+            <dt>Arousal</dt>
+            <dd>Estado fisiológico que determina la receptividad cognitiva y física momentánea a estímulos internos/externos; crítico para movilizar recursos para conducta dirigida a objetivos. El paper lo conceptualiza como <em>propiedad emergente</em> de múltiples sistemas (NA, DA, acetilcolina, serotonina), no un proceso único medible directamente.</dd>
+
+            <dt>Sistema LC-NA (locus coeruleus–noradrenalina)</dt>
+            <dd>El LC es la fuente principal de noradrenalina del cerebro. Modula el arousal en dos modos: <strong>tónico</strong> (regulación lenta del arousal basal) y <strong>explosiones fásicas</strong> evocadas externamente (aumentos rápidos y sincronizados que facilitan respuesta adaptativa y separan señal relevante del ruido).</dd>
+
+            <dt>Ganancia neural (neural gain)</dt>
+            <dd>Proceso por el que la liberación de NA —vía receptores α2, α1 y β— altera la sensibilidad de las neuronas a señales entrantes, sintonizando la excitabilidad de interneuronas excitatorias e inhibitorias y controlando la razón señal-a-ruido a nivel de microcircuito. Es el mecanismo puente propuesto entre microcircuito y red.</dd>
+
+            <dt>Curva en U invertida (LC–rendimiento)</dt>
+            <dd>Relación entre actividad LC-NA y función cognitiva: el rendimiento óptimo ocurre en niveles intermedios de actividad tónica del LC que permiten explosiones fásicas fuertes evocadas por estímulo. Tanto la hipo- como la hiperactivación deterioran el rendimiento.</dd>
+
+            <dt>Integración vs segregación de red</dt>
+            <dd>Dos regímenes de topología cerebral de larga escala mediados por arousal: arousal bajo → menor comunicación inter-regional (segregación); arousal más alto → integración inter-regional; arousal excesivamente alto → inhibe la integración y deteriora el desempeño.</dd>
+
+            <dt>Marco de referencia / calibración</dt>
+            <dd>Idea central del framework: el arousal mediado por NA no computa el valor, sino que fija un punto de referencia que calibra las políticas downstream (decisión, invigoración, aprendizaje) mediadas por la dopamina. El arousal controla el <strong>"push"</strong> (empuje); los sistemas de valor controlan el <strong>"pull"</strong> (atracción).</dd>
+
+            <dt>Arousal vinculado a la pupila (pupil-linked arousal)</dt>
+            <dd>Cambios en el tamaño pupilar usados como proxy <strong>no invasivo e indirecto</strong> de la actividad LC-NA en humanos; influenciado también por otros sistemas neuromoduladores y autonómicos, por lo que requiere interpretación cautelosa. En sanos rastrea costos, beneficios, valor neto de decisión y errores de predicción.</dd>
+
+            <dt>tVNS (estimulación transcutánea del nervio vago)</dt>
+            <dd>Estimulación eléctrica que puede aumentar la actividad LC naturalmente ocurrente imitando patrones de actividad vagal fásica; en sanos co-ocurre con aumentos a corto plazo del tamaño pupilar y respuestas más vigorosas. Propuesta como vía de manipulación causal del arousal.</dd>
+          </dl>
+        </div>
+      </details>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ======== 4. MÉTODOS ======== -->
+    <section class="section fade-in" id="metodos">
+      <div class="section-kicker">Cómo se construyó el marco</div>
+      <h2>Métodos</h2>
+      <p>Es una <strong>síntesis narrativa</strong> (narrative review), no un estudio empírico con datos primarios.
+      Los autores integran tres cuerpos de literatura dentro de un marco ya establecido de comportamiento motivado, y mapean las
+      dinámicas de arousal (tónico/fásico, ganancia neural, integración/segregación de red) sobre los subcomponentes computacionales
+      del comportamiento motivado: <strong>decisión, invigoración y aprendizaje</strong>.</p>
+      <details>
+        <summary>Ver lógica integradora completa</summary>
+        <div class="details-content">
+          <h3>1 · Evidencia preclínica (animal) — la más cercana a lo causal</h3>
+          <p>Registros invasivos en mono, optogenética y manipulación tónica/fásica del LC en rata, y farmacología que atenúa la función NA.
+          Aporta el escalón experimental más fuerte sobre el rol del LC-NA en la movilización de recursos.</p>
+
+          <h3>2 · Evidencia en humanos sanos — dominada por proxies indirectos</h3>
+          <p>Pupilometría, neuroimagen frontoparietal (ACC e ínsula como red de valuación), manipulaciones farmacológicas del LC-NA y tVNS.
+          En sanos, la dilatación pupilar fásica rastrea costos, beneficios, valor neto de decisión y errores de predicción.</p>
+
+          <h3>3 · Evidencia clínica preliminar (MDD, SZ) — cuatro lecturas</h3>
+          <p><strong>Autorreporte:</strong> fatiga, percepción de esfuerzo, EMA de actividad. <strong>Psicofisiología:</strong> HR, HRV,
+          conductancia de piel, pupilometría, EEG. <strong>Evaluaciones neurales:</strong> post-mortem del LC, conectividad LC-córtex,
+          depleción de NA/DA. <strong>Tareas computacionales:</strong> toma de decisión basada en costo de esfuerzo (ECDM), aprendizaje por refuerzo (RL),
+          anticipación de recompensa.</p>
+
+          <h3>Conclusión integradora</h3>
+          <p>La desregulación del arousal (hiperarousal basal + reactividad fásica embotada) recalibra las políticas motivacionales hacia
+          la minimización del esfuerzo. Los autores cierran proponiendo agendas experimentales y computacionales (imagen de LC con secuencias
+          MRI dedicadas, PET, EMA + wearables, tVNS como manipulación causal) para testear el marco.</p>
+        </div>
+      </details>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ======== 5. IDEAS CLAVE ======== -->
+    <section class="section fade-in" id="ideas">
+      <div class="section-kicker">El núcleo conceptual</div>
+      <h2>Ideas clave</h2>
+
+      <div class="pushpull">
+        <div class="pp-card push">
+          <div class="pp-tag">PUSH</div>
+          <div class="pp-sub">Arousal (NA): cuánto empuje fisiológico puede ejercer el organismo</div>
+        </div>
+        <div class="pp-mid">calibra →</div>
+        <div class="pp-card pull">
+          <div class="pp-tag">PULL</div>
+          <div class="pp-sub">Valor (DA): cuánta atracción ejerce la meta</div>
+        </div>
+      </div>
+
+      <div class="ideas-grid">
+        <div class="idea-card">
+          <div class="idea-head"><span class="idea-num">01</span>El arousal no computa valor: lo calibra</div>
+          <div class="idea-detail">El framework reposiciona la dopamina como sistema downstream cuya influencia está parcialmente restringida por sistemas mediadores de arousal. La NA controla el "push" (empuje disponible) y los sistemas de valor el "pull" (atracción a la meta). Desplaza el foco de <em>"qué vale la meta"</em> a <em>"qué tan disponible está el organismo para perseguirla"</em>.</div>
+        </div>
+        <div class="idea-card">
+          <div class="idea-head"><span class="idea-num">02</span>Firma clínica de dos componentes</div>
+          <div class="idea-detail">Conductancia de piel, HRV y dilatación pupilar convergen: MDD y esquizofrenia muestran <strong>hiperarousal basal</strong> (tónico elevado) acoplado a <strong>reactividad fásica embotada</strong>. Tanto hipo- como hiperarousal pueden volver al individuo no-responsivo a señales externas relevantes, afectando el engagement en conducta dirigida a objetivos.</div>
+        </div>
+        <div class="idea-card">
+          <div class="idea-head"><span class="idea-num">03</span>El mismo eje sesga la conducta en sanos</div>
+          <div class="idea-detail">Arousal alto → maximiza recompensa pese a mayor costo de esfuerzo; arousal bajo → minimiza esfuerzo aun ante recompensas mayores. La pupila fásica rastrea costo/beneficio/valor neto, con activación en ACC e ínsula (red de valuación). Este es el patrón "normal" contra el que se lee la disfunción clínica como recalibración de las mismas políticas.</div>
+        </div>
+        <div class="idea-card">
+          <div class="idea-head"><span class="idea-num">04</span>Relación arousal–cognición no-monotónica (U invertida)</div>
+          <div class="idea-detail">Hay un óptimo intermedio: no "más arousal es mejor". El rendimiento óptimo ocurre en actividad tónica intermedia del LC que permite explosiones fásicas fuertes. A nivel de red, arousal más alto facilita integración inter-regional, pero arousal excesivo la inhibe. El mecanismo puente propuesto micro→macro es la <strong>ganancia neural</strong>.</div>
+        </div>
+        <div class="idea-card">
+          <div class="idea-head"><span class="idea-num">05</span>Propuesta explícitamente no causal en humanos</div>
+          <div class="idea-detail">Los autores reconocen que, aunque la evidencia animal sugiere un rol potencialmente causal del LC-NA, en humanos la evidencia clínica es preliminar y mayormente correlacional, y la pupila es un proxy indirecto contaminado por múltiples sistemas. El valor del paper es generar hipótesis testeables y dianas (tVNS, imagen de LC, PET, EMA), no afirmar causalidad.</div>
+        </div>
+      </div>
+
+      <blockquote>
+        <p>“NA-mediated arousal may control the amount of &ldquo;push&rdquo; that organisms can exert, thereby acting as a calibration mechanism for value systems that direct behavior (&ldquo;pull&rdquo;) towards goal attainment.”</p>
+        <cite>— Arousal as a calibration mechanism for goal-directed behavior</cite>
+      </blockquote>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ======== 6. PRINCIPIOS DESTILADOS ======== -->
+    <section class="section fade-in" id="principios">
+      <div class="section-kicker">12 principios · test triple: transferible · accionable · falsificable</div>
+      <h2>Principios destilados</h2>
+
+      <div class="principle-card">
+        <div class="p-num">01</div>
+        <h3>Distingue el mecanismo que VALORA del que HABILITA</h3>
+        <p class="p-body">Antes de atribuir un déficit de conducta a una mala representación del valor, separa si el organismo no quiere la meta (valuación, <em>pull</em>) o no está fisiológicamente disponible para perseguirla (arousal/movilización de recursos, <em>push</em>). Son ejes disociables.</p>
+        <div class="triple">
+          <div class="tline"><span class="tkey">Transferible</span>Cualquier diagnóstico de bajo rendimiento conductual: productividad, adherencia, aprendizaje, motivación organizacional.</div>
+          <div class="tline"><span class="tkey">Accionable</span>Mide dos cosas en vez de una: valuación (elección costo-beneficio) y estado de arousal (HRV, pupila, activación basal) antes de elegir intervención.</div>
+          <div class="tline"><span class="tkey falsif">Falsificable</span>Se refuta si manipular el arousal no cambia la conducta con la representación de valor constante, o si arousal y valuación resultan inseparables.</div>
+        </div>
+      </div>
+
+      <div class="principle-card">
+        <div class="p-num">02</div>
+        <h3>Sospecha de un óptimo intermedio, no de un "más es mejor"</h3>
+        <p class="p-body">Cuando un recurso modula rendimiento (activación, presión, estimulación), asume por defecto una relación en U invertida: hay un nivel intermedio óptimo y los extremos (hipo e hiper) degradan el resultado.</p>
+        <div class="triple">
+          <div class="tline"><span class="tkey">Transferible</span>Apareció en LC-cognición e integración de red; la forma se transfiere a cualquier dosis-respuesta: estrés-desempeño, carga-aprendizaje, intensidad-engagement.</div>
+          <div class="tline"><span class="tkey">Accionable</span>Diseña intervenciones que apunten a un rango medio (titulación) y mide si el sujeto está por debajo o por encima del óptimo antes de empujar.</div>
+          <div class="tline"><span class="tkey falsif">Falsificable</span>Se refuta si la relación resulta monotónica (rendimiento sube linealmente hasta el techo) en vez de caer en los extremos.</div>
+        </div>
+      </div>
+
+      <div class="principle-card">
+        <div class="p-num">03</div>
+        <h3>Mide el patrón de dos componentes, no solo el nivel basal</h3>
+        <p class="p-body">Para caracterizar un sistema regulatorio, separa el nivel tónico (basal) de la reactividad fásica (respuesta a eventos): un sistema puede estar elevado en basal y simultáneamente embotado en su capacidad de responder.</p>
+        <div class="triple">
+          <div class="tline"><span class="tkey">Transferible</span>Cualquier sistema con línea base y respuesta a estímulos: cardiovascular, atencional, emocional, e incluso métricas de equipos (carga crónica vs respuesta a crisis).</div>
+          <div class="tline"><span class="tkey">Accionable</span>Protocolos que capturen ambos componentes (baseline + paradigma evocado) y diagnósticos del tipo "hiperarousal basal + reactividad fásica reducida".</div>
+          <div class="tline"><span class="tkey falsif">Falsificable</span>Se refuta si tónico y fásico covarían perfectamente, o si la reactividad embotada no agrega información predictiva sobre el basal.</div>
+        </div>
+      </div>
+
+      <div class="principle-card">
+        <div class="p-num">04</div>
+        <h3>Trata el proxy fisiológico como indirecto y contaminado</h3>
+        <p class="p-body">Cuando uses un marcador no invasivo como ventana a un sistema profundo, trátalo como proxy indirecto influenciado por múltiples sistemas, no como medida directa del mecanismo de interés.</p>
+        <div class="triple">
+          <div class="tline"><span class="tkey">Transferible</span>Cualquier biomarcador-proxy (pupila, HRV, EEG, wearables) o métrica indirecta usada como stand-in de un constructo latente en investigación o negocio.</div>
+          <div class="tline"><span class="tkey">Accionable</span>Regla de triangulación: no concluir mecanismo desde un solo proxy; combinar varios marcadores convergentes y declarar la cautela interpretativa.</div>
+          <div class="tline"><span class="tkey falsif">Falsificable</span>Se refuta si el proxy mapea 1:1 con la actividad del sistema diana sin contaminación de otros sistemas.</div>
+        </div>
+      </div>
+
+      <div class="principle-card">
+        <div class="p-num">05</div>
+        <h3>Un mecanismo plausible no es causal hasta que lo manipulas</h3>
+        <p class="p-body">Distingue evidencia de asociación (proxies que covarían) de evidencia causal (manipulación experimental). En humanos, la causalidad a nivel de subcomponente puede estar ausente aunque la narrativa sea coherente. <em>Endurecido:</em> este estándar aplica donde la manipulación es factible (animal, tVNS humana); donde no lo es, las afirmaciones causales se <strong>gradúan</strong> en peso y se anclan en evidencia preclínica convergente —no se descartan ni se asumen.</p>
+        <div class="triple">
+          <div class="tline"><span class="tkey">Transferible</span>Inferencia causal en cualquier campo que construye frameworks desde datos observacionales (epidemiología, ciencias sociales, analítica de producto).</div>
+          <div class="tline"><span class="tkey">Accionable</span>Exige al menos una vía de manipulación (farmacología, optogenética, tVNS, ensayo) antes de actuar; degrada el peso de las conclusiones cuando solo hay correlación.</div>
+          <div class="tline"><span class="tkey falsif">Falsificable</span>Se refuta el reclamo causal si manipular directamente el arousal (p.ej. tVNS) no produce el cambio predicho en el subcomponente motivacional.</div>
+        </div>
+      </div>
+
+      <div class="principle-card">
+        <div class="p-num">06</div>
+        <h3>Atraviesa diagnósticos por mecanismo compartido, no por etiqueta</h3>
+        <p class="p-body">Si dos condiciones distintas (MDD y SZ) comparten un patrón mecanístico (disfunción de modulación dinámica del arousal), organiza la investigación y la intervención alrededor del mecanismo transdiagnóstico, no de la categoría nosológica. Es el principio RDoC explícitamente invocado por el paper.</p>
+        <div class="triple">
+          <div class="tline"><span class="tkey">Transferible</span>Cualquier dominio donde categorías heterogéneas comparten un driver común.</div>
+          <div class="tline"><span class="tkey">Accionable</span>Diseña estudios e intervenciones que recluten por fenotipo mecanístico (p.ej. reactividad fásica embotada) en lugar de por diagnóstico, ampliando la población diana.</div>
+          <div class="tline"><span class="tkey falsif">Falsificable</span>Se refuta si el patrón de arousal en MDD y SZ resulta cualitativamente distinto, o si la intervención funciona en una condición pero no en la otra pese a estar el mecanismo presente.</div>
+        </div>
+      </div>
+
+      <div class="principle-card">
+        <div class="p-num">07</div>
+        <h3>Cuando el tratamiento estanca, sospecha que el modelo causal está incompleto</h3>
+        <p class="p-body">La falta persistente de avances terapéuticos pese a una base empírica fuerte es señal de que el marco mecanístico dominante está incompleto —no de que falte más evidencia del mismo tipo. Busca el factor "poco apreciado". <em>Endurecido:</em> es heurística para investigadores ante estancamiento terapéutico general; en clínica individual, "no mejora" puede ser fallo de implementación, comorbilidad o no-adherencia, no falsación de la teoría.</p>
+        <div class="triple">
+          <div class="tline"><span class="tkey">Transferible</span>Heurística de estrategia de investigación y diagnóstico de problemas: estancamiento bajo evidencia abundante = revisar supuestos del modelo.</div>
+          <div class="tline"><span class="tkey">Accionable</span>Pivotar hacia un mecanismo complementario (aquí, arousal) en vez de seguir optimizando el dominante (dopamina/valor).</div>
+          <div class="tline"><span class="tkey falsif">Falsificable</span>Se refuta si intervenir sobre el nuevo mecanismo NO mejora los outcomes donde las intervenciones clásicas fallaron.</div>
+        </div>
+      </div>
+
+      <div class="principle-card">
+        <div class="p-num">08</div>
+        <h3>Conecta el nivel micro con el macro mediante un mecanismo puente explícito</h3>
+        <p class="p-body">Al explicar un fenómeno a través de escalas (microcircuito → red de larga escala → conducta), nombra el mecanismo puente que conecta los niveles en lugar de saltar entre ellos por correlación. Aquí el puente propuesto es la <strong>ganancia neural</strong>.</p>
+        <div class="triple">
+          <div class="tline"><span class="tkey">Transferible</span>Cualquier modelo multinivel (molécula-célula-órgano; individuo-equipo-organización): el rigor exige el conector, no solo la correlación entre extremos.</div>
+          <div class="tline"><span class="tkey">Accionable</span>Testea el conector directamente (la ganancia neural media la comunicación inter-regional), no solo los extremos.</div>
+          <div class="tline"><span class="tkey falsif">Falsificable</span>Se refuta si manipular el mecanismo puente no altera la variable de nivel superior que se le atribuye mediar.</div>
+        </div>
+      </div>
+
+      <div class="principle-card">
+        <div class="p-num">09</div>
+        <h3>Lee el síntoma observable como consecuencia downstream de un proceso regulatorio</h3>
+        <p class="p-body">Un síntoma conductual prominente (p.ej. fatiga) puede ser la consecuencia descendente de la desregulación de un sistema regulatorio (arousal), no la causa primaria; rastrea el síntoma hasta el proceso que lo genera.</p>
+        <div class="triple">
+          <div class="tline"><span class="tkey">Transferible</span>Cualquier síntoma o KPI superficial reinterpretable como output de un sistema subyacente (fatiga, churn, baja adherencia como síntomas de un driver común).</div>
+          <div class="tline"><span class="tkey">Accionable</span>Intervenir sobre el regulador upstream (modulación del arousal) en vez de tratar el síntoma aislado; reinterpretar la fatiga como driver de invigoración/esfuerzo.</div>
+          <div class="tline"><span class="tkey falsif">Falsificable</span>Se refuta si el síntoma persiste sin cambios al normalizar el proceso regulatorio, o si precede temporalmente a la desregulación.</div>
+        </div>
+      </div>
+
+      <div class="principle-card">
+        <div class="p-num">10</div>
+        <h3>Triangula con la evidencia preclínica donde la causalidad humana es inaccesible</h3>
+        <p class="p-body">Cuando no puedes manipular causalmente un sistema en humanos por límites éticos o técnicos, ancla las afirmaciones causales en evidencia preclínica convergente (optogenética, farmacología, registros invasivos) y mantenlas como hipótesis en humanos.</p>
+        <div class="triple">
+          <div class="tline"><span class="tkey">Transferible</span>Inferencia translacional general: usar el escalón experimental más fuerte disponible en otra especie como soporte causal provisional.</div>
+          <div class="tline"><span class="tkey">Accionable</span>Construir la cadena animal→humano explícitamente, marcando que el eslabón causal vive en el modelo animal y el correlacional en el humano.</div>
+          <div class="tline"><span class="tkey falsif">Falsificable</span>Se refuta si la manipulación causal en animales no reproduce el efecto, o si el efecto animal no se traduce en ninguna asociación humana detectable.</div>
+        </div>
+      </div>
+
+      <div class="principle-card">
+        <div class="p-num">11</div>
+        <h3>Detecta el déficit ya en la fase temprana porque persiste y se vuelve residual</h3>
+        <p class="p-body">Si un déficit aparece en fase prodrómica/temprana, persiste en cronicidad y queda como síntoma residual resistente, priorízalo como diana de evaluación e intervención temprana, no como secuela tardía.</p>
+        <div class="triple">
+          <div class="tline"><span class="tkey">Transferible</span>Cualquier marcador que aparece temprano y predice trayectoria: la detección precoz de un rasgo persistente cambia la ventana de intervención.</div>
+          <div class="tline"><span class="tkey">Accionable</span>Incorporar medidas de arousal/motivación en evaluaciones tempranas (no solo en fase aguda) y diseñar intervenciones para el síntoma residual.</div>
+          <div class="tline"><span class="tkey falsif">Falsificable</span>Se refuta si el déficit motivacional NO está presente en fases tempranas/prodrómicas, o si remite espontáneamente sin volverse residual.</div>
+        </div>
+      </div>
+
+      <div class="principle-card">
+        <div class="p-num">12</div>
+        <h3>Convierte el framework en agenda medible antes de declararlo útil</h3>
+        <p class="p-body">Un marco teórico solo se vuelve aplicable cuando se acompaña de vías concretas de medición y manipulación; especifica las herramientas (imagen dedicada, proxies, manipulación causal) que lo harían testeable.</p>
+        <div class="triple">
+          <div class="tline"><span class="tkey">Transferible</span>Cierre de cualquier propuesta conceptual: la utilidad se demuestra por la ruta a la falsación, no por la coherencia interna del relato.</div>
+          <div class="tline"><span class="tkey">Accionable</span>Pasar de teoría a protocolo: imagen de LC con MRI dedicada y ROI calibrado, PET para drivers neuroquímicos, EMA + wearables, tVNS como manipulación causal.</div>
+          <div class="tline"><span class="tkey falsif">Falsificable</span>Se refuta si las herramientas no capturan el constructo de arousal con resolución suficiente, o si los estudios diseñados con ellas no hallan las asociaciones/efectos predichos.</div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ======== 7. APLICACIONES ======== -->
+    <section class="section fade-in" id="aplicaciones">
+      <div class="section-kicker">El "so what" concreto · contexto + acción + caveat</div>
+      <h2>Aplicaciones</h2>
+
+      <div class="application-card">
+        <div class="app-number">01</div>
+        <div class="app-content">
+          <p><strong>Diseño de estudio en psiquiatría de precisión sobre déficits motivacionales</strong></p>
+          <p class="app-action">Recluta por fenotipo mecanístico transdiagnóstico (reactividad fásica embotada + arousal basal elevado, medido con pupilometría y HRV) en lugar de por diagnóstico DSM, e incluye SIEMPRE una medida de valuación (tarea costo-beneficio) junto a la de arousal para disociar <em>pull</em> de <em>push</em>.</p>
+          <p class="caveat">⚠️ Falta evidencia causal humana a nivel de subcomponente. <strong>Valida primero que el mismo patrón de arousal aparece en MDD Y SZ</strong> antes de usar el fenotipo como diana —la compartición transdiagnóstica aún es descriptiva. La pupila es proxy indirecto contaminado.</p>
+        </div>
+      </div>
+
+      <div class="application-card">
+        <div class="app-number">02</div>
+        <div class="app-content">
+          <p><strong>Intervención para motivación residual que no responde a tratamiento clásico</strong></p>
+          <p class="app-action">Evalúa una vía de modulación del arousal (p.ej. tVNS, que en sanos co-ocurre con respuestas más vigorosas) como complemento a las intervenciones dopaminérgicas/de recompensa, apuntando a <em>restaurar la modulación dinámica</em> del arousal más que a maximizarlo.</p>
+          <p class="caveat">⚠️ Los ensayos que manipulan NA para síntomas negativos dieron resultados inconsistentes [refs 133,134]. <strong>Mide basal tónico + reactividad fásica ANTES de intervenir y titula hacia el óptimo intermedio (U invertida); monitorea para no sobrepasarlo</strong> —sin esa medición previa se interviene a ciegas.</p>
+        </div>
+      </div>
+
+      <div class="application-card">
+        <div class="app-number">03</div>
+        <div class="app-content">
+          <p><strong>Interpretación de un biomarcador-proxy (pupila, HRV, wearable)</strong></p>
+          <p class="app-action">Triangula al menos dos marcadores convergentes (conductancia de piel + HRV + pupila) antes de inferir estado del sistema LC-NA, y documenta explícitamente la cautela porque el proxy está influenciado por múltiples sistemas autonómicos y neuromoduladores.</p>
+          <p class="caveat">⚠️ El tamaño pupilar es proxy <em>indirecto</em>; concluir actividad LC-NA desde un solo marcador es exactamente la sobreinterpretación que el paper advierte evitar.</p>
+        </div>
+      </div>
+
+      <div class="application-card">
+        <div class="app-number">04</div>
+        <div class="app-content">
+          <p><strong>Monitoreo ecológico de motivación y energía en vida diaria (EMA + wearables)</strong></p>
+          <p class="app-action">Combina evaluaciones ecológicas momentáneas de actividad/engagement con marcadores fisiológicos de arousal portátiles para mapear cómo fluctúa el "push" fisiológico junto a la conducta dirigida a objetivos, reinterpretando la fatiga como driver de invigoración más que mero cansancio.</p>
+          <p class="caveat">⚠️ Es una vía propuesta por los autores para futuras investigaciones, no un protocolo validado; los wearables heredan la limitación de ser proxies indirectos.</p>
+        </div>
+      </div>
+
+      <div class="application-card">
+        <div class="app-number">05</div>
+        <div class="app-content">
+          <p><strong>Diagnóstico estratégico de un problema que no mejora pese a intervenciones bien fundamentadas</strong></p>
+          <p class="app-action">Aplica la heurística del paper: cuando el tratamiento estanca con base empírica fuerte, busca el factor "poco apreciado" upstream (aquí, el regulador de disponibilidad) en vez de acumular más datos del mecanismo dominante; rastrea el síntoma superficial hasta el proceso regulatorio que lo genera.</p>
+          <p class="caveat">⚠️ Es heurística de investigación; trasladarla a un caso clínico individual exige que exista realmente un regulador upstream disociable —"no mejora" puede ser fallo de implementación, comorbilidad o adherencia, no falsación del modelo.</p>
+        </div>
+      </div>
+
+      <div class="application-card">
+        <div class="app-number">06</div>
+        <div class="app-content">
+          <p><strong>Construcción de un modelo explicativo multinivel (micro → macro)</strong></p>
+          <p class="app-action">Nombra y testea el mecanismo puente que conecta escalas (aquí ganancia neural entre microcircuito y red de larga escala) en lugar de saltar de la molécula a la conducta por correlación entre extremos.</p>
+          <p class="caveat">⚠️ El nexo ganancia-neural → integración-de-red es "sugerido, al menos en parte" en el paper; sigue siendo un eslabón hipotético que requiere manipulación directa para confirmarse.</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ======== 8. LIMITACIONES ======== -->
+    <section class="section fade-in" id="limitaciones">
+      <div class="section-kicker">Honestidad epistémica</div>
+      <h2>Limitaciones + Gaps</h2>
+
+      <div class="limitation-item">
+        <span class="badge badge-red">Diseño</span>
+        <span>Es una <strong>propuesta inicial</strong> de framework integrativo (narrative review), no un test empírico: los propios autores la presentan como puente conceptual entre arousal y valuación, no como modelo validado.</span>
+      </div>
+      <div class="limitation-item">
+        <span class="badge badge-red">Causalidad</span>
+        <span>Falta evidencia causal en humanos a nivel de subcomponente: el paper declara explícitamente que la influencia mecanística de las disrupciones del arousal sobre los procesos motivacionales no está demostrada causalmente en humanos; la evidencia humana es mayormente correlacional.</span>
+      </div>
+      <div class="limitation-item">
+        <span class="badge badge-red">Medición</span>
+        <span>Dependencia de proxies indirectos y contaminados: el tamaño pupilar (medida central en humanos) es un proxy indirecto del LC-NA influenciado por múltiples sistemas neuromoduladores y autonómicos, lo que limita la inferencia mecanística.</span>
+      </div>
+
+      <details>
+        <summary>Ver análisis completo de limitaciones</summary>
+        <div class="details-content">
+          <h3>Evidencia clínica preliminar e inconsistente</h3>
+          <p>La evidencia clínica revisada es calificada como preliminar; la evidencia sobre cambios morfológicos del LC (p.ej. en esquizofrenia) es inconclusa, y los resultados de ensayos que manipulan NA para síntomas negativos son inconsistentes.</p>
+
+          <h3>Salto translacional sin establecer</h3>
+          <p>La carga causal más fuerte proviene de modelos animales (mono, rata) cuya traducción a la fenomenología clínica humana no está establecida; el salto translacional queda como supuesto.</p>
+
+          <h3>Arousal multi-sistema sin resolver</h3>
+          <p>El framework se centra en el sistema LC-NA aunque reconoce que el arousal es propiedad emergente de múltiples sistemas (DA, acetilcolina, serotonina, inputs autonómicos); el peso relativo de cada sistema no se resuelve.</p>
+
+          <h3>Tensión causal interna del propio paper</h3>
+          <p>El abstract ("disruptions… can <em>directly interfere</em> with…") y el título de la sección clínica ("Dysregulated arousal <em>contributes to</em> reduced motivated behavior") usan lenguaje causal, mientras el cuerpo del mismo capítulo admite que la evidencia causal en humanos está ausente. Leer las afirmaciones causales como hipótesis, no como mecanismo establecido.</p>
+        </div>
+      </details>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ======== 9. ROUTE TO APPLICABILITY ======== -->
+    <section class="section fade-in" id="route">
+      <div class="section-kicker">Cierre estratégico · qué falta para aplicarlo</div>
+      <h2>Route to Applicability</h2>
+      <p>Vías concretas que los autores proponen para volver el framework testeable y aplicable:</p>
+      <div class="route-grid">
+        <div class="route-item">
+          <span class="r-icon">→</span>
+          <span class="r-text"><strong>Mejorar la medición del arousal central en humanos:</strong> secuencias MRI dedicadas para imagen del mesencéfalo con calibración de escáner informada y ROI dedicada al LC [refs 160,161]; datos de PET para entender los drivers neuroquímicos [refs 162,163].</span>
+        </div>
+        <div class="route-item">
+          <span class="r-icon">→</span>
+          <span class="r-text"><strong>Capturar la dinámica arousal-motivación en contextos naturalistas:</strong> combinar evaluación ecológica momentánea (EMA) con wearables.</span>
+        </div>
+        <div class="route-item">
+          <span class="r-icon">🔬</span>
+          <span class="r-text"><strong>Cerrar el gap causal (crítico):</strong> usar tVNS como manipulación causal del arousal acoplada a paradigmas de decisión [refs 87,88] para testear si modular el arousal cambia subcomponentes específicos (decisión costo-esfuerzo, RL, invigoración).</span>
+        </div>
+        <div class="route-item">
+          <span class="r-icon">→</span>
+          <span class="r-text"><strong>Anclar las afirmaciones causales</strong> en la evidencia preclínica convergente mientras se acumula evidencia humana.</span>
+        </div>
+        <div class="route-item">
+          <span class="r-icon">🔬</span>
+          <span class="r-text"><strong>Adoptar el encuadre RDoC</strong> [ref 164]: reclutar por fenotipo mecanístico transdiagnóstico (reactividad fásica embotada + hiperarousal basal) en vez de por categoría diagnóstica.</span>
+        </div>
+      </div>
+      <div class="route-callout">
+        <strong>Paso mínimo que falta:</strong> demostrar, con manipulación experimental en humanos, que alterar el arousal modifica
+        los componentes computacionales del comportamiento motivado. Hasta entonces, el marco es generador de hipótesis, no guía de intervención.
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ======== CITAS TEXTUALES ======== -->
+    <section class="section fade-in" id="citas">
+      <div class="section-kicker">Verificadas literales contra el manuscrito</div>
+      <h2>En palabras del paper</h2>
+
+      <blockquote>
+        <p>“dysfunctional modulation of arousal states may play a critical and underappreciated role by impairing the mobilization of cognitive and physiological resources required for goal-directed behavior in individuals with motivational deficits.”</p>
+        <cite>— Abstract</cite>
+      </blockquote>
+
+      <blockquote>
+        <p>“we build on this body of prior work to advance an integrative conceptual framework which proposes that arousal dynamically shapes goal-directed behavior by setting a reference frame for (downstream) motivational computations mediated by other systems, such as dopamine.”</p>
+        <cite>— Introduction</cite>
+      </blockquote>
+
+      <blockquote>
+        <p>“the association between LC-NA activity and cognitive functioning can be described as an inverted-U curve, where optimal cognitive performance is observed at intermediate levels of tonic LC activity that permit strong, stimulus-evoked phasic bursts.”</p>
+        <cite>— Brain state reconfigurations</cite>
+      </blockquote>
+
+      <blockquote>
+        <p>“high-arousal states bias behavior toward maximization of reward despite higher effort costs, whereas low arousal states primarily bias behavior toward minimizing effort even at the prospect of higher rewards.”</p>
+        <cite>— Arousal as a calibration mechanism for goal-directed behavior</cite>
+      </blockquote>
+
+      <blockquote>
+        <p>“Readouts of different physiological arousal markers, including electrodermal activity, heart rate variability, and pupil dilation, converge on the idea that individuals with MDD and SZ exhibit higher levels of baseline arousal in combination with a marked reduction in the dynamic modulation of arousal.”</p>
+        <cite>— Psychophysiology</cite>
+      </blockquote>
+
+      <blockquote>
+        <p>“While the research we reviewed above supports the notion that motivational deficits in MDD and SZ may, in part, stem from dysregulated arousal systems, it is important to note that causal evidence for this mechanistic influence of arousal disturbances on motivational processes, at a subcomponent level, is missing in humans.”</p>
+        <cite>— Dysregulated arousal contributes to reduced motivated behavior in clinical samples</cite>
+      </blockquote>
+    </section>
+
+    <!-- ======== 10. LECTURAS SIGUIENTE ======== -->
+    <section class="section fade-in" id="lecturas">
+      <details>
+        <summary>📖 Lecturas recomendadas (6 referencias)</summary>
+        <div class="details-content">
+          <div class="reading-item">
+            <div class="reading-cite">Aston-Jones G, Cohen JD (2005). An integrative theory of locus coeruleus-norepinephrine function: adaptive gain and optimal performance. <em>Annu Rev Neurosci</em> 28:403–450.</div>
+            <div class="reading-why">Base teórica de la curva en U invertida, los modos tónico/fásico y la ganancia adaptativa.</div>
+          </div>
+          <div class="reading-item">
+            <div class="reading-cite">Sara SJ, Bouret S (2012). Orienting and reorienting: the locus coeruleus mediates cognition through arousal. <em>Neuron</em> 76(1):130–141.</div>
+            <div class="reading-why">Rol del LC en la cognición vía arousal.</div>
+          </div>
+          <div class="reading-item">
+            <div class="reading-cite">Salamone JD, Correa M (2024). The neurobiology of activational aspects of motivation. <em>Annu Rev Psychol</em> 75(1):1–32.</div>
+            <div class="reading-why">Aspectos activacionales del esfuerzo y dopamina — contrapunto al eje arousal.</div>
+          </div>
+          <div class="reading-item">
+            <div class="reading-cite">Husain M, Roiser JP (2018). Neuroscience of apathy and anhedonia: a transdiagnostic approach. <em>Nat Rev Neurosci</em> 19(8):470–484.</div>
+            <div class="reading-why">Enfoque transdiagnóstico de apatía/anhedonia.</div>
+          </div>
+          <div class="reading-item">
+            <div class="reading-cite">Fervaha G, et al. (2016). Motivational deficits in major depressive disorder. <em>Compr Psychiatry</em> 66:31–38.</div>
+            <div class="reading-why">Déficits motivacionales en MDD y outcome funcional.</div>
+          </div>
+          <div class="reading-item">
+            <div class="reading-cite">Galderisi S, et al. (2018). Negative symptoms of schizophrenia. <em>Lancet Psychiatry</em> 5(8):664–677.</div>
+            <div class="reading-why">Síntomas negativos de esquizofrenia.</div>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <footer class="digest-footer">
+      <p>Digest generado por el pipeline <strong>Paper Digestor</strong> de Jaflo Lab · destilación verificada (citas literales PASS, cero datos inventados) ·
+      audiencia clínico-investigador. Las afirmaciones causales del paper se leen como hipótesis: es una <em>initial proposal</em>, no un modelo validado.</p>
+      <p>Thurn L, Culbreth AJ, Hernaus D. <em>Arousal shapes motivation: an integrative framework for understanding motivational deficits.</em> Transl Psychiatry (2026). DOI: 10.1038/s41398-026-04113-3 · 2026-06-01</p>
+    </footer>
+
+  </div>
+
+  <script>
+    // Scroll progress bar
+    var progress = document.getElementById('scrollProgress');
+    function updateProgress() {
+      var h = document.documentElement;
+      var scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight);
+      progress.style.width = (scrolled * 100) + '%';
+    }
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+
+    // Fade-in on scroll via IntersectionObserver
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-in').forEach(function (el) { observer.observe(el); });
+  </script>
+</body>
+</html>
